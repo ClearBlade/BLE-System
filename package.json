@@ -37,12 +37,12 @@
         "jsdoc": "jsdoc2md code/*/*/*.js > jsdoc.md"
     },
     "repository": {
-        "type": "git".
+        "type": "git",
         "url": "https://github.com/andrewmathies/BLE-System"
     },
     "bugs": {
         "url": "https://github.com/andrewmathies/BLE-System/issues"
-    }
+    },
     "homepage": "https://github.com/andrewmathies/BLE-System#readme",
     "devDependencies": {"jsdoc-to-markdown": "^4.0.1"}
 }
