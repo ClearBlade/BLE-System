@@ -1,0 +1,9 @@
+#Variables for Init.d Deployments
+#old ADAPTERROOTFOLDER was /var/lib/clearblade/adapters
+ADAPTERROOTFOLDER=/home/root/adapters/thunder2
+ADAPTERFULLPATH=$ADAPTERROOTFOLDER
+ADAPTERSERVICENAME=thunder2
+INITDPATH=/etc/init.d
+PYTHONFILE=pythonScanner.py
+PYTHONBIN=/usr/bin/python
+LOGPATH=/media/userdata/scanner.log

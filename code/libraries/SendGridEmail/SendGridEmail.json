@@ -1,0 +1,8 @@
+{
+    "api": "",
+    "dependencies": "http,log",
+    "description": "SendGrid is a customer communication platform for transactional and marketing email. This library allows a ClearBlade Platform developer to install and send emails from their IoT solution with one line of code.",
+    "name": "SendGridEmail",
+    "version": 1,
+    "visibility": "system"
+}

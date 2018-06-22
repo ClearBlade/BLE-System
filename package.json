@@ -1,0 +1,48 @@
+{
+    "author": "Andrew Mathies <amathies@clearblade.com>",
+    "clouds": [],
+    "description": "Perform Anomaly Detection on data gathered from Thunderboards with an NXP imx6.",
+    "domains": [],
+    "gateways": ["imx6"],
+    "image_url": "https://i.imgur.com/dmtaj3d.jpg",
+    "asset_types":["Code Services", "Code Libraries", "Triggers", "Portals"],
+    "keywords": [
+        "clearblade",
+        "iot",
+        "platform",
+        "thunderboard",
+        "nxp",
+        "modular gateway",
+        "imx6",
+        "ble",
+        "bluetooth",
+        "anomaly",
+        "detection",
+        "portal",
+        "visualization"
+    ],
+    "license": "MIT",
+    "name": "thunderboard-visualization",
+    "private": false,
+    "prog_lang":["javascript", "python"],
+    "protocols": [],
+    "things": ["Thunderboard"],
+    "version": "1.0.2",
+    "dependencies":{
+        "sendgrid-email-library":"latest",
+        "twilio-sms-library":"latest",
+        "jstat-statistics-toolkit":"latest"
+    },
+    "scripts": {
+        "jsdoc": "jsdoc2md code/*/*/*.js > jsdoc.md"
+    },
+    "repository": {
+        "type": "git".
+        "url": "https://github.com/andrewmathies/BLE-System"
+    },
+    "bugs": {
+        "url": "https://github.com/andrewmathies/BLE-System/issues"
+    }
+    "homepage": "https://github.com/andrewmathies/BLE-System#readme",
+    "devDependencies": {"jsdoc-to-markdown": "^4.0.1"}
+}

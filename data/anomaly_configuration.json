@@ -1,0 +1,38 @@
+{
+    "app_id": "c4e0acb00bfaeba0d0d8ced8a6ca01",
+    "collection_id": "e4beeeb00bbc8c8de8d6f4e0ffee01",
+    "items": [],
+    "name": "anomaly_configuration",
+    "permissions": {
+        "Administrator": 15,
+        "Anonymous": 5,
+        "Authenticated": 15
+    },
+    "schema": [
+        {
+            "ColumnName": "item_id",
+            "ColumnType": "uuid",
+            "PK": true
+        },
+        {
+            "ColumnName": "key",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "val",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "val_enum_options",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "default_val",
+            "ColumnType": "string",
+            "PK": false
+        }
+    ]
+}

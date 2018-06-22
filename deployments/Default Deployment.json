@@ -1,0 +1,86 @@
+{
+    "assets": [
+        {
+            "asset_class": "ThunderboardHistorian",
+            "asset_id": "",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": true
+        },
+        {
+            "asset_class": "devices",
+            "asset_id": "",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": true
+        },
+        {
+            "asset_class": "users",
+            "asset_id": "",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": true
+        },
+        {
+            "asset_class": "timers",
+            "asset_id": "",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": false
+        },
+        {
+            "asset_class": "plugins",
+            "asset_id": "",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": false
+        },
+        {
+            "asset_class": "foomagoo",
+            "asset_id": "",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": true
+        },
+        {
+            "asset_class": "ThunderboardHistorian4",
+            "asset_id": "",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": true
+        },
+        {
+            "asset_class": "ThunderboardHistorian5",
+            "asset_id": "",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": true
+        },
+        {
+            "asset_class": "adaptors",
+            "asset_id": "thunder2",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": true
+        },
+        {
+            "asset_class": "services",
+            "asset_id": "AddThunderboardDevice",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": true
+        },
+        {
+            "asset_class": "triggers",
+            "asset_id": "NewThunderboardDevice",
+            "deployment": "Default Deployment",
+            "member": "Default Deployment_deployment_edge_group",
+            "sync": true
+        }
+    ],
+    "description": "Deployment created by the database migration process. It reflects the old semantics for ClearBlade systems",
+    "edges": [
+        "ThunderNXP"
+    ],
+    "name": "Default Deployment"
+}

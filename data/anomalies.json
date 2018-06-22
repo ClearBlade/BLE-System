@@ -1,0 +1,48 @@
+{
+    "app_id": "c4e0acb00bfaeba0d0d8ced8a6ca01",
+    "collection_id": "debeeeb00ba8bce5fcf7a7a6f0c301",
+    "items": [],
+    "name": "anomalies",
+    "permissions": {
+        "Administrator": 15,
+        "Anonymous": 15,
+        "Authenticated": 15
+    },
+    "schema": [
+        {
+            "ColumnName": "item_id",
+            "ColumnType": "uuid",
+            "PK": true
+        },
+        {
+            "ColumnName": "sensor_key",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "anomaly_timestamp",
+            "ColumnType": "timestamp",
+            "PK": false
+        },
+        {
+            "ColumnName": "val",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "above_threshold",
+            "ColumnType": "bool",
+            "PK": false
+        },
+        {
+            "ColumnName": "threshold_min",
+            "ColumnType": "double",
+            "PK": false
+        },
+        {
+            "ColumnName": "threshold_max",
+            "ColumnType": "double",
+            "PK": false
+        }
+    ]
+}

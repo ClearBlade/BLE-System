@@ -1,0 +1,17 @@
+{
+    "event_definition": {
+        "def_keys": [
+            "collectionId",
+            "collectionName"
+        ],
+        "def_module": "Data",
+        "def_name": "ItemCreated",
+        "visibility": true
+    },
+    "key_value_pairs": {
+        "collectionId": "debeeeb00ba8bce5fcf7a7a6f0c301",
+        "collectionName": "Anomalies"
+    },
+    "name": "SendAlertsTrigger",
+    "service_name": "SendAlert"
+}

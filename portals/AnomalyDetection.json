@@ -1,0 +1,936 @@
+{
+    "config": {
+        "cols": {
+            "lg": 12,
+            "md": 10,
+            "sm": 6,
+            "xs": 4,
+            "xxs": 2
+        },
+        "currentBreakpointForFlyoutWidgets": "lg",
+        "currentBreakpointForPanes": "lg",
+        "currentBreakpointsForWidgets": {
+            "50e310db-ddbd-4f8a-a1f1-8fa278a5fce7": "xxs",
+            "711df14f-d3b6-42de-98d2-e1ba22f4e4fe": "lg",
+            "930ce528-7490-4d68-add5-7275e5de2371": "lg",
+            "a1fe212e-fbf5-42cd-ba06-32b37e39e7cd": "lg",
+            "fcd46e5d-3636-4d64-9863-71e1638529ec": "lg"
+        },
+        "datasources": {
+            "2bb16eed-5d17-4983-91e4-99802e987e7e": {
+                "id": "2bb16eed-5d17-4983-91e4-99802e987e7e",
+                "name": "saveAnomalyConfiguration",
+                "settings": {
+                    "CALL_ON_LOAD": false,
+                    "SUPPRESS_DATASOURCE_ERRORS": false,
+                    "code_name": "SaveAnomalyConfiguration",
+                    "payload": "{}",
+                    "refresh_interval": 0
+                },
+                "type": "CB_CODE_SERVICE"
+            },
+            "6aedc095-2d76-44bd-88e8-3c3cc419bad6": {
+                "id": "6aedc095-2d76-44bd-88e8-3c3cc419bad6",
+                "name": "DetectAnomaly",
+                "settings": {
+                    "CALL_ON_LOAD": true,
+                    "SUPPRESS_DATASOURCE_ERRORS": false,
+                    "code_name": "DetectAnomaly",
+                    "payload": "{}",
+                    "refresh_interval": "30"
+                },
+                "type": "CB_CODE_SERVICE"
+            },
+            "b292f6f0-1000-4dba-bfd8-14c5c3eea8bc": {
+                "id": "b292f6f0-1000-4dba-bfd8-14c5c3eea8bc",
+                "name": "Anomalies",
+                "settings": {
+                    "CALL_ON_LOAD": true,
+                    "SUPPRESS_DATASOURCE_ERRORS": false,
+                    "collection_name": "Anomalies",
+                    "refresh_interval": "100"
+                },
+                "type": "CB_COLLECTION"
+            },
+            "c0ef52a3-c24b-4c80-af9b-1874cb57b30c": {
+                "id": "c0ef52a3-c24b-4c80-af9b-1874cb57b30c",
+                "name": "SensorFeed",
+                "settings": {
+                    "CALL_ON_LOAD": true,
+                    "SUPPRESS_DATASOURCE_ERRORS": false,
+                    "TOPIC_NAME": "sensor"
+                },
+                "type": "CB_MESSAGE_TOPIC"
+            },
+            "e0f97424-2978-4d70-b8c2-d5f99b59470e": {
+                "id": "e0f97424-2978-4d70-b8c2-d5f99b59470e",
+                "name": "GetRecentAnomalies",
+                "settings": {
+                    "CALL_ON_LOAD": true,
+                    "SUPPRESS_DATASOURCE_ERRORS": false,
+                    "code_name": "GetRecentAnomalies",
+                    "payload": "{}",
+                    "refresh_interval": "10"
+                },
+                "type": "CB_CODE_SERVICE"
+            }
+        },
+        "externalScripts": [
+            {
+                "promise": {},
+                "shouldBlockAllWidgets": true,
+                "url": "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"
+            }
+        ],
+        "flyoutWidgetLayout": {
+            "lg": [],
+            "md": [],
+            "sm": [],
+            "xs": [],
+            "xxs": []
+        },
+        "headerWidgetLayout": {
+            "lg": [
+                {
+                    "h": 1,
+                    "i": "brand",
+                    "moved": false,
+                    "static": false,
+                    "w": 42,
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "h": 1,
+                    "i": "title",
+                    "moved": false,
+                    "static": false,
+                    "w": 46,
+                    "x": 185,
+                    "y": 0
+                }
+            ],
+            "md": [
+                {
+                    "h": 1,
+                    "i": "brand",
+                    "moved": false,
+                    "static": false,
+                    "w": 36,
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "h": 1,
+                    "i": "title",
+                    "moved": false,
+                    "static": false,
+                    "w": 39,
+                    "x": 154,
+                    "y": 0
+                }
+            ],
+            "sm": [
+                {
+                    "h": 1,
+                    "i": "brand",
+                    "moved": false,
+                    "static": false,
+                    "w": 34,
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "h": 1,
+                    "i": "title",
+                    "moved": false,
+                    "static": false,
+                    "w": 37,
+                    "x": 117,
+                    "y": 0
+                }
+            ],
+            "xs": [
+                {
+                    "h": 1,
+                    "i": "brand",
+                    "moved": false,
+                    "static": false,
+                    "w": 28,
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "h": 1,
+                    "i": "title",
+                    "moved": false,
+                    "static": false,
+                    "w": 31,
+                    "x": 71,
+                    "y": 0
+                }
+            ],
+            "xxs": [
+                {
+                    "h": 1,
+                    "i": "brand",
+                    "moved": false,
+                    "static": false,
+                    "w": 32,
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "h": 1,
+                    "i": "title",
+                    "moved": false,
+                    "static": false,
+                    "w": 33,
+                    "x": 47,
+                    "y": 0
+                }
+            ]
+        },
+        "pages": {
+            "Home": {
+                "children": [],
+                "defaultValue": "",
+                "href": "",
+                "id": "Home",
+                "isChild": false,
+                "isParam": false,
+                "name": "Home",
+                "path": ""
+            }
+        },
+        "paneGridWidgetLayouts": {
+            "50e310db-ddbd-4f8a-a1f1-8fa278a5fce7": {
+                "lg": [
+                    {
+                        "h": 9,
+                        "i": "ecc0477f-ad08-4dcc-aef2-f03645b081de",
+                        "minH": 3,
+                        "moved": false,
+                        "static": false,
+                        "w": 5,
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "md": [],
+                "sm": [],
+                "xs": [],
+                "xxs": [
+                    {
+                        "h": 9,
+                        "i": "ecc0477f-ad08-4dcc-aef2-f03645b081de",
+                        "minH": 3,
+                        "moved": false,
+                        "static": false,
+                        "w": 2,
+                        "x": 0,
+                        "y": 0
+                    }
+                ]
+            },
+            "711df14f-d3b6-42de-98d2-e1ba22f4e4fe": {
+                "lg": [
+                    {
+                        "h": 9,
+                        "i": "d3fe0bcd-c5a2-4d3d-9fdb-aab43a961aa3",
+                        "minH": 3,
+                        "w": 1,
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "md": [],
+                "sm": [],
+                "xs": [],
+                "xxs": []
+            },
+            "930ce528-7490-4d68-add5-7275e5de2371": {
+                "lg": [
+                    {
+                        "h": 9,
+                        "i": "9c030b18-ac83-4c8c-9913-180ebec0af5f",
+                        "minH": 3,
+                        "w": 5,
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "md": [],
+                "sm": [],
+                "xs": [],
+                "xxs": []
+            },
+            "a1fe212e-fbf5-42cd-ba06-32b37e39e7cd": {
+                "lg": [
+                    {
+                        "h": 9,
+                        "i": "39aaeae4-a19f-4009-864f-0f3d35b4082a",
+                        "minH": 3,
+                        "w": 1,
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "md": [],
+                "sm": [],
+                "xs": [],
+                "xxs": []
+            },
+            "fcd46e5d-3636-4d64-9863-71e1638529ec": {
+                "lg": [
+                    {
+                        "h": 9,
+                        "i": "2b27bdbf-b97f-4e85-96f0-c5909a62fd61",
+                        "minH": 3,
+                        "w": 13,
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                "md": [],
+                "sm": [],
+                "xs": [],
+                "xxs": []
+            }
+        },
+        "paneLayouts": {
+            "Home": {
+                "lg": [
+                    {
+                        "h": 3,
+                        "i": "0dbda8ed-5d8f-4499-835d-54ae538cd015",
+                        "moved": false,
+                        "static": false,
+                        "w": 8,
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "h": 3,
+                        "i": "a857a408-37d9-4c9e-92ce-36212dfdf3e6",
+                        "moved": false,
+                        "static": false,
+                        "w": 4,
+                        "x": 8,
+                        "y": 0
+                    },
+                    {
+                        "h": 3,
+                        "i": "39094b26-e1ea-43a7-ac49-73baada8173f",
+                        "moved": false,
+                        "static": false,
+                        "w": 5,
+                        "x": 0,
+                        "y": 3
+                    },
+                    {
+                        "h": 3,
+                        "i": "fa00077e-5a84-439c-9253-bd09b30853db",
+                        "moved": false,
+                        "static": false,
+                        "w": 4,
+                        "x": 8,
+                        "y": 3
+                    },
+                    {
+                        "h": 3,
+                        "i": "3247ba5e-3b05-493c-8da4-003d11c0a642",
+                        "moved": false,
+                        "static": false,
+                        "w": 3,
+                        "x": 5,
+                        "y": 3
+                    }
+                ],
+                "md": [],
+                "sm": [],
+                "xs": [],
+                "xxs": []
+            }
+        },
+        "panes": {
+            "0dbda8ed-5d8f-4499-835d-54ae538cd015": {
+                "customPaneId": "",
+                "header": {
+                    "hide": false,
+                    "title": "Sensor Feed - Anomaly Detection"
+                },
+                "hiddenBreakpoints": {},
+                "hideBorders": false,
+                "id": "0dbda8ed-5d8f-4499-835d-54ae538cd015",
+                "pageId": "Home",
+                "tabInfo": {
+                    "activeTab": "fcd46e5d-3636-4d64-9863-71e1638529ec",
+                    "tabIds": [
+                        "fcd46e5d-3636-4d64-9863-71e1638529ec"
+                    ],
+                    "tabTitles": {
+                        "fcd46e5d-3636-4d64-9863-71e1638529ec": "DOUBLE CLICK"
+                    },
+                    "tabbed": false
+                },
+                "themeType": "secondary"
+            },
+            "3247ba5e-3b05-493c-8da4-003d11c0a642": {
+                "customPaneId": "",
+                "header": {
+                    "hide": false,
+                    "title": "SensorFeed"
+                },
+                "hiddenBreakpoints": {},
+                "hideBorders": false,
+                "id": "3247ba5e-3b05-493c-8da4-003d11c0a642",
+                "pageId": "Home",
+                "tabInfo": {
+                    "activeTab": "50e310db-ddbd-4f8a-a1f1-8fa278a5fce7",
+                    "tabIds": [
+                        "50e310db-ddbd-4f8a-a1f1-8fa278a5fce7"
+                    ],
+                    "tabTitles": {
+                        "50e310db-ddbd-4f8a-a1f1-8fa278a5fce7": "DOUBLE CLICK"
+                    },
+                    "tabbed": false
+                },
+                "themeType": "secondary"
+            },
+            "39094b26-e1ea-43a7-ac49-73baada8173f": {
+                "customPaneId": "",
+                "header": {
+                    "hide": false,
+                    "title": "Alerts"
+                },
+                "hiddenBreakpoints": {},
+                "hideBorders": false,
+                "id": "39094b26-e1ea-43a7-ac49-73baada8173f",
+                "pageId": "Home",
+                "tabInfo": {
+                    "activeTab": "711df14f-d3b6-42de-98d2-e1ba22f4e4fe",
+                    "tabIds": [
+                        "711df14f-d3b6-42de-98d2-e1ba22f4e4fe"
+                    ],
+                    "tabTitles": {
+                        "711df14f-d3b6-42de-98d2-e1ba22f4e4fe": "DOUBLE CLICK"
+                    },
+                    "tabbed": false
+                },
+                "themeType": "secondary"
+            },
+            "a857a408-37d9-4c9e-92ce-36212dfdf3e6": {
+                "customPaneId": "",
+                "header": {
+                    "hide": false,
+                    "title": "Detection Rules"
+                },
+                "hiddenBreakpoints": {},
+                "hideBorders": false,
+                "id": "a857a408-37d9-4c9e-92ce-36212dfdf3e6",
+                "pageId": "Home",
+                "tabInfo": {
+                    "activeTab": "a1fe212e-fbf5-42cd-ba06-32b37e39e7cd",
+                    "tabIds": [
+                        "a1fe212e-fbf5-42cd-ba06-32b37e39e7cd"
+                    ],
+                    "tabTitles": {
+                        "a1fe212e-fbf5-42cd-ba06-32b37e39e7cd": "DOUBLE CLICK"
+                    },
+                    "tabbed": false
+                },
+                "themeType": "secondary"
+            },
+            "fa00077e-5a84-439c-9253-bd09b30853db": {
+                "customPaneId": "",
+                "header": {
+                    "hide": false,
+                    "title": "Alerts"
+                },
+                "hiddenBreakpoints": {},
+                "hideBorders": false,
+                "id": "fa00077e-5a84-439c-9253-bd09b30853db",
+                "pageId": "Home",
+                "tabInfo": {
+                    "activeTab": "930ce528-7490-4d68-add5-7275e5de2371",
+                    "tabIds": [
+                        "930ce528-7490-4d68-add5-7275e5de2371"
+                    ],
+                    "tabTitles": {
+                        "930ce528-7490-4d68-add5-7275e5de2371": "DOUBLE CLICK"
+                    },
+                    "tabbed": false
+                },
+                "themeType": "secondary"
+            }
+        },
+        "savedPortalExists": true,
+        "theme": {
+            "graph": {
+                "four": "#E8E7C6",
+                "one": "#6E8592",
+                "three": "#DBA5A8",
+                "two": "#6E93A8"
+            },
+            "info": {
+                "display_name": "Standard",
+                "name": "STANDARD_THEME"
+            },
+            "items": {
+                "main": {
+                    "header": {
+                        "burgerBars": {
+                            "fontColor": "#f5f5f5"
+                        },
+                        "dropdown": {
+                            "fontColor": "#f5f5f5",
+                            "fontFamily": "Helvetica",
+                            "fontSize": 18
+                        },
+                        "styles": {
+                            "backgroundColor": "#6e8592"
+                        }
+                    },
+                    "panes": {
+                        "flyout": {
+                            "body": {
+                                "backgroundColor": "#f5f5f5"
+                            },
+                            "header": {
+                                "backgroundColor": "#6e8592"
+                            }
+                        },
+                        "primary": {
+                            "body": {
+                                "backgroundColor": "#f5f5f5"
+                            },
+                            "header": {
+                                "backgroundColor": "#6e8592"
+                            },
+                            "tabs": {
+                                "activeTabUnderlineColor": "#425864",
+                                "backgroundColor": "#9db5c2",
+                                "fontColor": "#000000"
+                            }
+                        },
+                        "secondary": {
+                            "body": {
+                                "backgroundColor": "#f5f5f5"
+                            },
+                            "header": {
+                                "backgroundColor": "#9db5c2"
+                            },
+                            "tabs": {
+                                "activeTabUnderlineColor": "#425864",
+                                "backgroundColor": "#6e8592",
+                                "fontColor": "#000000"
+                            }
+                        }
+                    },
+                    "portal": {
+                        "styles": {
+                            "backgroundColor": "#ffffff"
+                        }
+                    },
+                    "widgets": {
+                        "BAR_CHART_WIDGET_COMPONENT": {
+                            "barColors": [
+                                {
+                                    "fill": "#6E8592"
+                                },
+                                {
+                                    "fill": "#6E93A8"
+                                },
+                                {
+                                    "fill": "#DBA5A8"
+                                },
+                                {
+                                    "fill": "#E8E7C6"
+                                }
+                            ],
+                            "brushStroke": "#6e8592",
+                            "legendColor": "#000000"
+                        },
+                        "BUTTON_WIDGET_COMPONENT": {
+                            "backgroundColor": "#f5f5f5",
+                            "backgroundHoverColor": "#c2c2c2",
+                            "borderColor": "#cccccc",
+                            "fontColor": "#000000"
+                        },
+                        "FILTERABLE_LIST_WIDGET_COMPONENT": {
+                            "activeFontColor": "#000000",
+                            "activeItemBackgroundColor": "#6e8592",
+                            "fontColor": "#000000",
+                            "listItemBackgroundColor": "#ffffff",
+                            "titleColor": "#000000"
+                        },
+                        "FORM_WIDGET_COMPONENT": {
+                            "cardBackgroundColor": "#f5f5f5",
+                            "fontColor": "#000000",
+                            "sliderColor": "#6E8592",
+                            "titleColor": "#000000",
+                            "toggleColor": "#6E8592"
+                        },
+                        "GOOGLE_MAP_WIDGET_COMPONENT": {
+                            "mapTheme": ""
+                        },
+                        "GROUPING_LIST_WIDGET_COMPONENT": {
+                            "activeFontColor": "#000000",
+                            "activeItemBackgroundColor": "#6e8592",
+                            "fontColor": "#000000",
+                            "listItemBackgroundColor": "#ffffff",
+                            "titleColor": "#000000"
+                        },
+                        "LINE_CHART_WIDGET_COMPONENT": {
+                            "brushStroke": "#6e8592",
+                            "legendColor": "#000000",
+                            "lineColors": [
+                                {
+                                    "stroke": "#6E8592"
+                                },
+                                {
+                                    "stroke": "#6E93A8"
+                                },
+                                {
+                                    "stroke": "#DBA5A8"
+                                },
+                                {
+                                    "stroke": "#E8E7C6"
+                                }
+                            ]
+                        },
+                        "LIST_WIDGET_COMPONENT": {
+                            "activeFontColor": "#000000",
+                            "activeItemBackgroundColor": "#6e8592",
+                            "fontColor": "#000000",
+                            "listItemBackgroundColor": "#ffffff",
+                            "titleColor": "#000000"
+                        },
+                        "PIE_CHART_WIDGET_COMPONENT": {
+                            "cells": [
+                                {
+                                    "fill": "#6E8592"
+                                },
+                                {
+                                    "fill": "#6E93A8"
+                                },
+                                {
+                                    "fill": "#DBA5A8"
+                                },
+                                {
+                                    "fill": "#E8E7C6"
+                                }
+                            ]
+                        },
+                        "RADIAL_GAUGE_WIDGET_COMPONENT": {
+                            "backgroundColor": "#c2c2c2",
+                            "progressColor": "#6e8592"
+                        },
+                        "SPEEDOMETER_WIDGET": {
+                            "arrowColor": "#000000",
+                            "sectionColors": [
+                                {
+                                    "fill": "#6E8592"
+                                },
+                                {
+                                    "fill": "#6E93A8"
+                                },
+                                {
+                                    "fill": "#DBA5A8"
+                                },
+                                {
+                                    "fill": "#E8E7C6"
+                                }
+                            ]
+                        },
+                        "TEXT_WIDGET_COMPONENT": {
+                            "fontColor": "#000000",
+                            "fontFamily": "Helvetica",
+                            "fontSize": 18
+                        },
+                        "TOGGLE_WIDGET": {
+                            "backgroundColor": "#c2c2c2",
+                            "fontColor": "#000000",
+                            "offColor": "#ffffff",
+                            "onColor": "#6e8592"
+                        }
+                    }
+                }
+            },
+            "palette": {
+                "darkPrimary": "#c2c2c2",
+                "darkSecondary": "#425864",
+                "defaultPrimary": "#f5f5f5",
+                "defaultSecondary": "#6e8592",
+                "lightPrimary": "#ffffff",
+                "lightSecondary": "#9db5c2",
+                "primaryText": "#000000",
+                "secondaryText": "#000000"
+            }
+        },
+        "upgradesPerformed": {
+            "flyoutTitleUpgrade": true,
+            "headerBrandUpgrade": true,
+            "headerTitleUpgrade": true,
+            "widgetResizeUpgrade": true
+        },
+        "widgets": {
+            "2b27bdbf-b97f-4e85-96f0-c5909a62fd61": {
+                "externalScripts": [
+                    "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"
+                ],
+                "id": "2b27bdbf-b97f-4e85-96f0-c5909a62fd61",
+                "props": {
+                    "HAS_UNIQUE_STYLE": true,
+                    "brushStroke": "#6e8592",
+                    "chartData": {
+                        "dataType": "DYNAMIC_DATA_TYPE",
+                        "id": "6aedc095-2d76-44bd-88e8-3c3cc419bad6",
+                        "incoming_parser": {
+                            "isDebugOn": false,
+                            "value": "return this.datasource.results.toViz;"
+                        }
+                    },
+                    "chartMarginBottom": 0,
+                    "chartMarginLeft": 0,
+                    "chartMarginRight": 0,
+                    "chartMarginTop": 0,
+                    "legendColor": "#000000",
+                    "legendHorizontalAlign": "center",
+                    "legendLayout": "horizontal",
+                    "legendVerticalAlign": "bottom",
+                    "lineColors": [
+                        {
+                            "stroke": "#6E8592"
+                        },
+                        {
+                            "stroke": "#ff0000"
+                        },
+                        {
+                            "stroke": "#fb0613"
+                        },
+                        {
+                            "stroke": "#3b3a23"
+                        }
+                    ],
+                    "lines": [
+                        {
+                            "dataKey": "sensorValue",
+                            "legendType": "star",
+                            "type": "monotone"
+                        },
+                        {
+                            "dataKey": "min",
+                            "legendType": "rect",
+                            "type": "monotone"
+                        },
+                        {
+                            "dataKey": "max",
+                            "legendType": "square",
+                            "type": "monotone"
+                        }
+                    ],
+                    "referenceLines": [],
+                    "showBrush": false,
+                    "showDots": true,
+                    "showGrid": true,
+                    "showHorizontalGrid": true,
+                    "showLegend": true,
+                    "showTooltip": true,
+                    "showVerticalGrid": true,
+                    "xAxisDataKey": "timestamp",
+                    "xAxisOrientation": "bottom",
+                    "xAxisPaddingLeft": 0,
+                    "xAxisPaddingRight": 0,
+                    "yAxes": []
+                },
+                "tab": "fcd46e5d-3636-4d64-9863-71e1638529ec",
+                "type": "LINE_CHART_WIDGET_COMPONENT"
+            },
+            "39aaeae4-a19f-4009-864f-0f3d35b4082a": {
+                "externalScripts": [
+                    "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"
+                ],
+                "id": "39aaeae4-a19f-4009-864f-0f3d35b4082a",
+                "props": {
+                    "html": {
+                        "dataType": "STATIC_DATA_TYPE",
+                        "force_data": [
+                            "STATIC_DATA_TYPE",
+                            "DYNAMIC_DATA_TYPE"
+                        ],
+                        "incoming_parser": {
+                            "isDebugOn": false,
+                            "value": "return this.datasource;"
+                        },
+                        "value": {
+                            "CSS": ".underline {\n  text-decoration: underline;\n}\n",
+                            "HTML": "\u003cbr\u003e\nStrictness\u003cbr\u003e\n\u003cdiv class=\"btn-group\" role=\"group\" aria-label=\"Basic example\"\u003e\n  \u003cbutton type=\"button\" onclick=\"setStrictness('OFF')\" class=\"btn bg-secondary text-white\"\u003eOff\u003c/button\u003e\n  \u003cbutton type=\"button\" onclick=\"setStrictness('LOW')\" class=\"btn btn-info\"\u003eLow\u003c/button\u003e\n  \u003cbutton type=\"button\" onclick=\"setStrictness('MODERATE')\" class=\"btn btn-warning\"\u003eModerate\u003c/button\u003e\n  \u003cbutton type=\"button\" onclick=\"setStrictness('HIGH')\" class=\"btn btn-danger\"\u003eHigh\u003c/button\u003e\n\u003c/div\u003e\n\u003cbr\u003e\u003cbr\u003e\n\u003cdiv class=\"input-group mb-3\"\u003e\n  \u003cdiv class=\"input-group-prepend\"\u003e\n    \u003cspan class=\"input-group-text\" id=\"basic-addon1\"\u003eTopic\u003c/span\u003e\n  \u003c/div\u003e\n  \u003cinput id=\"topicInput\" type=\"text\" class=\"form-control\" value=\"sensor\" aria-label=\"Username\" aria-describedby=\"basic-addon1\"\u003e\n\u003c/div\u003e\n\n\u003cdiv class=\"input-group mb-3\"\u003e\n  \u003cdiv class=\"input-group-prepend\"\u003e\n    \u003cspan class=\"input-group-text\" id=\"basic-addon1\"\u003eSensor Key\u003c/span\u003e\n  \u003c/div\u003e\n  \u003cinput id=\"sensorKeyInput\" type=\"text\" class=\"form-control\" value=\"temperature\" aria-label=\"Username\" aria-describedby=\"basic-addon1\"\u003e\n\u003c/div\u003e\n\n\n\n\u003cbr\u003e\n\u003cbutton onclick=\"save()\" type=\"button\" class=\"btn btn-primary\"\u003eSave\u003c/button\u003e\n",
+                            "JavaScript": "//JavaScript\nwindow.setStrictness = function(strictness){\n    console.log(\"Setting str to \" + strictness)\n    datasources['saveAnomalyConfiguration'].sendData({strictness})\n    // refresh line graph\n     datasources['DetectAnomaly'].sendData({})\n\n}\n\nwindow.save = function(){\n    console.log(\"Saving settings\")\n    try{\n        var topic = document.getElementById(\"topicInput\").value;\n        var sensor_key = document.getElementById(\"sensorKeyInput\").value\n        datasources['saveAnomalyConfiguration'].sendData({topic, sensor_key})\n    }\n    catch(e){\n        console.log(\"Failed to save settings: \" + JSON.stringify(e))\n    }\n}"
+                        }
+                    }
+                },
+                "tab": "a1fe212e-fbf5-42cd-ba06-32b37e39e7cd",
+                "type": "HTML_WIDGET_COMPONENT"
+            },
+            "9c030b18-ac83-4c8c-9913-180ebec0af5f": {
+                "externalScripts": [
+                    "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"
+                ],
+                "id": "9c030b18-ac83-4c8c-9913-180ebec0af5f",
+                "props": {
+                    "html": {
+                        "dataType": "STATIC_DATA_TYPE",
+                        "force_data": [
+                            "STATIC_DATA_TYPE",
+                            "DYNAMIC_DATA_TYPE"
+                        ],
+                        "incoming_parser": {
+                            "isDebugOn": false,
+                            "value": "return this.datasource;"
+                        },
+                        "value": {
+                            "CSS": ".underline {\n  text-decoration: underline;\n}\n",
+                            "HTML": "SMS Alerts\n\u003cdiv class=\"input-group mb-3\"\u003e\n  \u003cdiv class=\"input-group-prepend\"\u003e\n    \u003cdiv class=\"input-group-text\"\u003e\n      \u003cinput id=\"sms_alerts_enabled\" type=\"checkbox\" aria-label=\"Checkbox for following text input\"\u003e\n    \u003c/div\u003e\n  \u003c/div\u003e\n  \u003cinput id=\"sms_alerts_recipient\" type=\"text\"  placeholder=\"5555555555\" class=\"form-control\" aria-label=\"Text input with checkbox\"\u003e\n\u003c/div\u003e\n\nEmail Alerts\n\u003cdiv class=\"input-group mb-3\"\u003e\n  \u003cdiv class=\"input-group-prepend\"\u003e\n    \u003cdiv class=\"input-group-text\"\u003e\n      \u003cinput id=\"email_alerts_enabled\" type=\"checkbox\" aria-label=\"Checkbox for following text input\"\u003e\n    \u003c/div\u003e\n  \u003c/div\u003e\n  \u003cinput id=\"email_alerts_recipients\" type=\"text\" placeholder=\"example1@gmail.com, example2@gmail.com\" class=\"form-control\" aria-label=\"Text input with checkbox\"\u003e\n\u003c/div\u003e\n\n\u003cbutton onclick=\"saveAlerts()\" type=\"button\" class=\"btn btn-primary\"\u003eSave\u003c/button\u003e",
+                            "JavaScript": "//JavaScript\nwindow.saveAlerts = function(){\n    var email_alerts_enabled = document.getElementById(\"email_alerts_enabled\").checked ? \"true\" : \"false\"\n    var sms_alerts_enabled = document.getElementById(\"sms_alerts_enabled\").checked ? \"true\" : \"false\"\n\n    var sms_alerts_recipient = document.getElementById(\"sms_alerts_recipient\").value\n    var email_alerts_recipients = document.getElementById(\"email_alerts_recipients\").value\n    email_alerts_recipients = email_alerts_recipients.split(',').map(function(e){\n        return e.trim()\n    })\n\n    var updates = {email_alerts_enabled,sms_alerts_enabled,sms_alerts_recipient,email_alerts_recipients}\n    if(sms_alerts_recipient){\n        delete updates.sms_alerts_recipient\n    }\n    if(email_alerts_recipients){\n        delete updates.email_alerts_recipients\n    }\n    datasources['saveAnomalyConfiguration'].sendData(updates)\n}"
+                        }
+                    }
+                },
+                "tab": "930ce528-7490-4d68-add5-7275e5de2371",
+                "type": "HTML_WIDGET_COMPONENT"
+            },
+            "brand": {
+                "externalScripts": [
+                    "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"
+                ],
+                "id": "brand",
+                "props": {
+                    "HAS_UNIQUE_STYLE": true,
+                    "fontColor": "#fff",
+                    "fontFamily": "Helvetica",
+                    "fontSize": 18,
+                    "textContent": {
+                        "dataType": "STATIC_DATA_TYPE",
+                        "value": "ClearBlade"
+                    }
+                },
+                "tab": "HEADER",
+                "type": "TEXT_WIDGET_COMPONENT"
+            },
+            "d3fe0bcd-c5a2-4d3d-9fdb-aab43a961aa3": {
+                "externalScripts": [
+                    "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"
+                ],
+                "id": "d3fe0bcd-c5a2-4d3d-9fdb-aab43a961aa3",
+                "props": {
+                    "HAS_UNIQUE_STYLE": false,
+                    "activeFontColor": "#000000",
+                    "activeItemBackgroundColor": "#6e8592",
+                    "eventTarget": {
+                        "dataType": "DYNAMIC_DATA_TYPE",
+                        "force_data": [
+                            "DYNAMIC_DATA_TYPE"
+                        ],
+                        "id": "c7188af2-3dc7-442c-a201-93dda2d21ed1",
+                        "outgoing_parser": {
+                            "isDebugOn": false,
+                            "value": "return this.widget;"
+                        }
+                    },
+                    "fontColor": "#000000",
+                    "listItemBackgroundColor": "#ffffff",
+                    "listSource": {
+                        "dataType": "DYNAMIC_DATA_TYPE",
+                        "id": "e0f97424-2978-4d70-b8c2-d5f99b59470e",
+                        "incoming_parser": {
+                            "isDebugOn": false,
+                            "value": "var fmtData = [];\nvar len = this.datasource.length;\nvar rows;\nif(this.datasource){\n  rows = this.datasource.results.DATA.sort(function(a,b){\n    return a.anomaly_timestamp \u003e= b.anomaly_timestamp ? -1 : 1;\n  })\n\n}\ndebugger;\n\nfor(var a of rows){\n  var formatted = format(a)\n  fmtData.push({label: formatted , value: {item_id: a.item_id}});\n}\nreturn fmtData;\n\n\n\nfunction format(row){\n  var avg = (row.threshold_max - row.threshold_min) / 2\n  var variance = Math.abs(row.val - avg) / avg\n  var variancePercent = Math.round(variance * 100)\n\n  row.howLongAgo = howLongAgo(row.anomaly_timestamp)\n\n  row.variancePercent = variancePercent\n  var template = \"{{howLongAgo}} - Sensor {{sensor_key}} breached threshold by {{variancePercent}}% with value of {{val}}\"\n    var output = template\n  for(var i in row){\n    output = output.replace(\"{{\"+i+\"}}\",row[i])\n  }\n  return output\n}\n\nfunction howLongAgo(timestamp){\n  return dateFns.distanceInWordsToNow(new Date(timestamp)) + \" ago\"\n}"
+                        }
+                    },
+                    "titleColor": "#000000",
+                    "trackingColumnName": "item_id"
+                },
+                "tab": "711df14f-d3b6-42de-98d2-e1ba22f4e4fe",
+                "type": "LIST_WIDGET_COMPONENT"
+            },
+            "ecc0477f-ad08-4dcc-aef2-f03645b081de": {
+                "externalScripts": [
+                    "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"
+                ],
+                "id": "ecc0477f-ad08-4dcc-aef2-f03645b081de",
+                "props": {
+                    "HAS_UNIQUE_STYLE": false,
+                    "activeFontColor": "#000000",
+                    "activeItemBackgroundColor": "#6e8592",
+                    "eventTarget": {
+                        "dataType": "DYNAMIC_DATA_TYPE",
+                        "force_data": [
+                            "DYNAMIC_DATA_TYPE"
+                        ],
+                        "id": "c7188af2-3dc7-442c-a201-93dda2d21ed1",
+                        "outgoing_parser": {
+                            "isDebugOn": false,
+                            "value": "return this.widget;"
+                        }
+                    },
+                    "fontColor": "#000000",
+                    "listItemBackgroundColor": "#ffffff",
+                    "listSource": {
+                        "dataType": "DYNAMIC_DATA_TYPE",
+                        "force_data": null,
+                        "id": "c0ef52a3-c24b-4c80-af9b-1874cb57b30c",
+                        "incoming_parser": {
+                            "isDebugOn": false,
+                            "value": "if(window.sensorFeed){\n    window.sensorFeed.unshift(JSON.parse(this.datasource))\n}\nelse{\n    window.sensorFeed = [JSON.parse(this.datasource)]\n}\nwindow.sensorFeed = window.sensorFeed.slice(0,10)\nreturn window.sensorFeed.map(function(e){\n    return {label:JSON.stringify(e),value:\"\"}\n})"
+                        }
+                    },
+                    "titleColor": "#000000",
+                    "trackingColumnName": "item_id"
+                },
+                "tab": "50e310db-ddbd-4f8a-a1f1-8fa278a5fce7",
+                "type": "LIST_WIDGET_COMPONENT"
+            },
+            "flyoutTitle": {
+                "externalScripts": [
+                    "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"
+                ],
+                "id": "flyoutTitle",
+                "props": {
+                    "HAS_UNIQUE_STYLE": true,
+                    "fontColor": "#fff",
+                    "fontFamily": "Helvetica",
+                    "fontSize": 30,
+                    "textContent": {
+                        "dataType": "CALCULATED_DATA_TYPE",
+                        "value": "return portalTitle"
+                    }
+                },
+                "type": "TEXT_WIDGET_COMPONENT"
+            },
+            "title": {
+                "externalScripts": [
+                    "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"
+                ],
+                "id": "title",
+                "props": {
+                    "HAS_UNIQUE_STYLE": true,
+                    "fontColor": "#fff",
+                    "fontFamily": "Trebuchet MS",
+                    "fontSize": 18,
+                    "textContent": {
+                        "dataType": "CALCULATED_DATA_TYPE",
+                        "value": "return portalTitle"
+                    }
+                },
+                "tab": "HEADER",
+                "type": "TEXT_WIDGET_COMPONENT"
+            }
+        }
+    },
+    "description": "Visualization of Anomaly Detection",
+    "last_updated": "31 May 18 18:23 UTC",
+    "name": "AnomalyDetection",
+    "system_key": "c4e0acb00bfaeba0d0d8ced8a6ca01",
+    "type": "custom_v2"
+}

@@ -1,0 +1,355 @@
+{
+    "Description": "Default role that is applied to all unauthenticated users",
+    "ID": "Anonymous",
+    "Name": "Anonymous",
+    "Permissions": {
+        "AllCollections": {
+            "Level": 15
+        },
+        "AllServices": {
+            "Level": 15
+        },
+        "CodeServices": [
+            {
+                "Level": 1,
+                "Name": "AddThunderboardDevice",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "Bar",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "CreateCollection",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "DetectAnomaly",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "ExampleDetectAnomaly",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "Example_GenerateData",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "Example_NormalDeviate",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "Example_NormalDistribution_Advanced",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "GetRecentAnomalies",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "MotionHistory",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "MyNest",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "PortalTemperature",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "ProcessEnv",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "ProcessEnvironment",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "PurgeEnv",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "PurgeQueue",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "PurgeThunderboardCollection",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "SaveAnomalyConfiguration",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "SendAlert",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "ThunderboardMessageProcessor",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "getRecentAnomalies",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "lightHistory",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "listDevices",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "message_firmwareMonitor",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "portal_firmwareUpload",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "pressureHistory",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "saveAnomalyConfiguration",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "updateDevice",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            }
+        ],
+        "Collections": [
+            {
+                "Columns": [],
+                "ID": "debeeeb00ba8bce5fcf7a7a6f0c301",
+                "Items": [],
+                "Level": 15,
+                "Name": "Anomalies"
+            },
+            {
+                "Columns": [],
+                "ID": "90c19bae0b9ebdfdb6f8ab8efa36",
+                "Items": [],
+                "Level": 15,
+                "Name": "Anomalies"
+            },
+            {
+                "Columns": [],
+                "ID": "8ec29bae0beeb4efe2b9cad1a619",
+                "Items": [],
+                "Level": 5,
+                "Name": "AnomalyConfiguration"
+            },
+            {
+                "Columns": [],
+                "ID": "e4beeeb00bbc8c8de8d6f4e0ffee01",
+                "Items": [],
+                "Level": 5,
+                "Name": "AnomalyConfiguration"
+            },
+            {
+                "Columns": [],
+                "ID": "be96879e0bf0d0c9b9d9e68eb64f",
+                "Items": [],
+                "Level": 0,
+                "Name": "ThunderboardHistorian"
+            },
+            {
+                "Columns": [],
+                "ID": "c093b0a60bace2c9e2b0cc90be5c",
+                "Items": [],
+                "Level": 0,
+                "Name": "ThunderboardHistorian3"
+            },
+            {
+                "Columns": [],
+                "ID": "a287b2a60bf692cee1d5a0e982b601",
+                "Items": [],
+                "Level": 0,
+                "Name": "a287b2a60bf692cee1d5a0e982b601"
+            },
+            {
+                "Columns": [],
+                "ID": "a693eeb00bf2c7f8aea6c080a1c501",
+                "Items": [],
+                "Level": 15,
+                "Name": "a693eeb00bf2c7f8aea6c080a1c501"
+            },
+            {
+                "Columns": [],
+                "ID": "a8d6b2a60b809bf4b4a0e1ff9335",
+                "Items": [],
+                "Level": 0,
+                "Name": "a8d6b2a60b809bf4b4a0e1ff9335"
+            },
+            {
+                "Columns": [],
+                "ID": "b8b6eeb00bd6ada1c7a6a7b8c111",
+                "Items": [],
+                "Level": 15,
+                "Name": "b8b6eeb00bd6ada1c7a6a7b8c111"
+            },
+            {
+                "Columns": [],
+                "ID": "c4cbdaa80b8eba9fdfb1daa4d478",
+                "Items": [],
+                "Level": 0,
+                "Name": "c4cbdaa80b8eba9fdfb1daa4d478"
+            },
+            {
+                "Columns": [],
+                "ID": "cee0acb00b80a7e6a6da8effc3f401",
+                "Items": [],
+                "Level": 15,
+                "Name": "cee0acb00b80a7e6a6da8effc3f401"
+            },
+            {
+                "Columns": [],
+                "ID": "cee0acb00bc2b9a7d1fdcaa79de801",
+                "Items": [],
+                "Level": 15,
+                "Name": "cee0acb00bc2b9a7d1fdcaa79de801"
+            },
+            {
+                "Columns": [],
+                "ID": "d086b2a60bca96fdaafbaad1c80c",
+                "Items": [],
+                "Level": 0,
+                "Name": "d086b2a60bca96fdaafbaad1c80c"
+            },
+            {
+                "Columns": [],
+                "ID": "d0cbdaa80ba0fff9c4b99ec59f3a",
+                "Items": [],
+                "Level": 0,
+                "Name": "d0cbdaa80ba0fff9c4b99ec59f3a"
+            },
+            {
+                "Columns": [],
+                "ID": "d8e0acb00bccf2ebefebd59fe007",
+                "Items": [],
+                "Level": 15,
+                "Name": "d8e0acb00bccf2ebefebd59fe007"
+            },
+            {
+                "Columns": [],
+                "ID": "e0e0acb00bd697a0ccb6fa82fc3f",
+                "Items": [],
+                "Level": 15,
+                "Name": "e0e0acb00bd697a0ccb6fa82fc3f"
+            },
+            {
+                "Columns": [],
+                "ID": "eee4fcad0b98ccbdf5a2f8adb0e001",
+                "Items": [],
+                "Level": 15,
+                "Name": "eee4fcad0b98ccbdf5a2f8adb0e001"
+            },
+            {
+                "Columns": [],
+                "ID": "facbdfa40bb0c2c9cebfdc86a28001",
+                "Items": [],
+                "Level": 15,
+                "Name": "vibration_sensor_1"
+            }
+        ],
+        "Deployments": {
+            "Level": 15
+        },
+        "DevicesList": {
+            "Level": 0
+        },
+        "EdgesList": {
+            "Level": 15
+        },
+        "MsgHistory": {
+            "Level": 1
+        },
+        "Portals": [
+            {
+                "Level": 5,
+                "Name": "ThunderBlade New",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 5,
+                "Name": "Device Management Portal",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 5,
+                "Name": "Thunderboard Test",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 5,
+                "Name": "statistics",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 1,
+                "Name": "AnomalyDetection",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 5,
+                "Name": "datepicker",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            },
+            {
+                "Level": 5,
+                "Name": "Thunderboard",
+                "SystemKey": "c4e0acb00bfaeba0d0d8ced8a6ca01"
+            }
+        ],
+        "Push": {
+            "Level": 0
+        },
+        "Roles": {
+            "Level": 0
+        },
+        "Timers": {
+            "Level": 15
+        },
+        "Topics": [],
+        "Triggers": {
+            "Level": 15
+        },
+        "UsersList": {
+            "Level": 0
+        }
+    }
+}

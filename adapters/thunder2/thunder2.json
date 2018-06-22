@@ -1,0 +1,14 @@
+{
+    "architecture": "linux32arm",
+    "deploy_command": "./deploy.sh",
+    "description": "",
+    "logs_command": "tail -f 100 /media/userdata/scanner.log",
+    "name": "thunder2",
+    "os": "",
+    "protocol": "",
+    "start_command": "./start.sh",
+    "status_command": "./status.sh",
+    "stop_command": "./stop.sh",
+    "undeploy_command": "./undeploy.sh",
+    "version": 131
+}

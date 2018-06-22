@@ -1,0 +1,8 @@
+{
+    "api": "",
+    "dependencies": "jStat",
+    "description": "Library for identification of items, events or observations which do not conform to an expected pattern or other items in a dataset",
+    "name": "AnomalyDetection",
+    "version": 1,
+    "visibility": "system"
+}

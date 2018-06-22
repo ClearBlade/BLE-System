@@ -1,0 +1,84 @@
+{
+    "columns": [
+        {
+            "ColumnName": "battery",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "location",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "device_label",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "map_url",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "gps_coordinates",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "causetrigger",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "sound",
+            "ColumnType": "int",
+            "PK": false
+        },
+        {
+            "ColumnName": "co2",
+            "ColumnType": "int",
+            "PK": false
+        },
+        {
+            "ColumnName": "temperature",
+            "ColumnType": "int",
+            "PK": false
+        },
+        {
+            "ColumnName": "voc",
+            "ColumnType": "int",
+            "PK": false
+        },
+        {
+            "ColumnName": "humidity",
+            "ColumnType": "int",
+            "PK": false
+        },
+        {
+            "ColumnName": "ambientlight",
+            "ColumnType": "int",
+            "PK": false
+        },
+        {
+            "ColumnName": "pressure",
+            "ColumnType": "int",
+            "PK": false
+        },
+        {
+            "ColumnName": "uvindex",
+            "ColumnType": "int",
+            "PK": false
+        },
+        {
+            "ColumnName": "lastupdate",
+            "ColumnType": "timestamp",
+            "PK": false
+        },
+        {
+            "ColumnName": "address",
+            "ColumnType": "string",
+            "PK": false
+        }
+    ]
+}
