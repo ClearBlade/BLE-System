@@ -8,7 +8,7 @@
         "visibility": true
     },
     "key_value_pairs": {
-        "topic": "+/status/+"
+        "topic": "+/status/+/_platform"
     },
     "name": "NewThunderboardDevice",
     "service_name": "AddThunderboardDevice"

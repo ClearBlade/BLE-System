@@ -71,13 +71,13 @@
             "PK": false
         },
         {
-            "ColumnName": "lastupdate",
-            "ColumnType": "timestamp",
+            "ColumnName": "address",
+            "ColumnType": "string",
             "PK": false
         },
         {
-            "ColumnName": "address",
-            "ColumnType": "string",
+            "ColumnName": "deviceid",
+            "ColumnType": "int",
             "PK": false
         }
     ]
