@@ -23,7 +23,7 @@ This is an ipm package, which contains one or more reusable assets within the ip
 ## Usage
 To see a visualization of the data, go to the Portals tab and click on the AnomalyDetection portal. Change the topic field on the right to be thunderboard/environment/YOURDEVICENAME/_platform, and change the Sensor Key field to one of sound, co2, temperature, voc, battery, light, uv, humidity, pressure.
 
-#Assets	
+# Assets	
 
 ## Code Services
 <span style="color:red">  AddThunderboardDevice</span> - Checks if a thunderboard device exists in the device table, if yes then sends authentication message back to gateway.  
