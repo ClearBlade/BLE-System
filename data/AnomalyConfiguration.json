@@ -2,7 +2,7 @@
     "app_id": "c4e0acb00bfaeba0d0d8ced8a6ca01",
     "collection_id": "e4beeeb00bbc8c8de8d6f4e0ffee01",
     "items": [],
-    "name": "anomaly_configuration",
+    "name": "AnomalyConfiguration",
     "permissions": {
         "Administrator": 15,
         "Anonymous": 5,
