@@ -23,8 +23,6 @@ function AddThunderboardDevice(req, resp){
         body = JSON.parse(req.params.body) ;  // this is sent by the trigger
         log("if statement succeeded!");
         log(req.params.body);
-        deviceId = body.deviceId;
-        gatewayName = body.topicName;
     }
     
     /** This ensures the gateway can't authenticate a device without checking the device table first. */
@@ -33,21 +31,94 @@ function AddThunderboardDevice(req, resp){
         resp.error("Unknown command in payload. Expected 'New' " + JSON.stringify(body)) ;
     }
 
-    ClearBlade.getDeviceByName(body.deviceId, function(err, data) {
+    var numberOfDevices;
+
+    ClearBlade.getAllDevicesForSystem(function(err, data) {
 		if(err){
-			log("Unable to find device: " + JSON.stringify(data)) ;
-			resp.error("Unable to get device: " + JSON.stringify(data));
-		} else {
-		    log("Device Found. Sending Authorized message back.");
-			log(JSON.stringify(data));
-			
-			var topic = body.gatewayName +"/command/" + body.deviceId;
-	        var payload = {"command": "ReadEnv", "status": "Authorized", "gatewayName": body.gatewayName, "deviceId": body.deviceId, "deviceAddress": body.deviceAddress, "deviceType": body.deviceType, "deviceAddrType": body.deviceAddrType};
-	        log("Publishing topic: " + topic + " with payload " + JSON.stringify(payload));
-	        
-	        var msg = ClearBlade.Messaging();
-            msg.publish(topic, JSON.stringify(payload));
-            resp.success("Done");  
+			resp.error("Unable to get all devices: " + JSON.stringify(data))
 		}
+
+        numberOfDevices = data.length;
+
+        for (var device = 0; device < numberOfDevices; device++) {
+            log("device looks like: " + JSON.stringify(data[device]));
+
+            if (data[device].deviceid == body.deviceId) {
+                log("Device Found. Sending Authorized message back.");
+                var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/ThunderNXP";
+                var payload = {"command": "ReadEnv", "status": "Authorized", "gatewayName": body.gatewayName, "deviceId": body.deviceId, "deviceAddress": body.deviceAddress, "deviceType": body.deviceType, "deviceAddrType": body.deviceAddrType};
+                log("Publishing topic: " + topic + " with payload " + JSON.stringify(payload));
+                var msg = ClearBlade.Messaging();
+                msg.publish(topic, JSON.stringify(payload));
+
+                resp.success(body);
+            }
+        }
 	});
+
+    log("either there are no devices or we didn't find any with the right id");
+    var generatedName = "thunderboard" + numberOfDevices;
+    log("trying to name device: " + generatedName);
+
+/*
+    var device = {
+        name: generatedName,
+        active_key: "clearblade",
+        address: "",
+        allow_certificate_auth: true,
+        allow_key_auth: true,
+        ambientlight: 0,
+        battery: "",
+        causetrigger: "",
+        certificate: "",
+        co2: 0,
+        description: "",
+        deviceid: body.deviceId,
+        device_label: "",
+        device_key: "",
+        enabled: true,
+        gps_coordinates: "",
+        has_keys: false,
+        keys: "",
+        humidity: 0,
+        location: "",
+        map_url: "",
+        pressure: 0,
+        sound: 0,
+        salt: "",
+        state: "",
+        system_key: req.system_key,
+        temperature: 0,
+        uvindex: 0,
+        voc: 0
+    };
+    */
+
+    var device = {
+		name: generatedName,
+		active_key: "clearblade",
+		type: "",
+		state: "",
+		enabled: true,
+		allow_key_auth: true,
+		allow_certificate_auth: true,
+        deviceid: body.deviceId
+	};
+
+    ClearBlade.createDevice(device.name, device, true, function(err, data) {
+        if(err){
+            resp.error("Unable to create device: " + JSON.stringify(data))
+        }
+
+        log("Made new device. Sending Authorized message back.");
+        
+        var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/ThunderNXP";
+        var payload = {"command": "ReadEnv", "status": "Authorized", "gatewayName": body.gatewayName, "deviceId": body.deviceId, "deviceAddress": body.deviceAddress, "deviceType": body.deviceType, "deviceAddrType": body.deviceAddrType};
+        log("Publishing topic: " + topic + " with payload " + JSON.stringify(payload));
+        
+        var msg = ClearBlade.Messaging();
+        msg.publish(topic, JSON.stringify(payload));
+
+        resp.success(data)
+    });
 }
