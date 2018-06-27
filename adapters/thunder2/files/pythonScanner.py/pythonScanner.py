@@ -4,19 +4,16 @@ from clearblade.ClearBladeCore import System, Query, Developer
 from clearblade.ClearBladeCore import cbLogs
 
 scanTimePeriod=20  # 20 seconds to look for new Bluetooth thunderboards
-waitTimeBetweenScans=20
 waitTimeBetweenReads=20  # wait and then process data. Let's say 1 second delay is the lowest
 NumMotionPoints=100     # read 100 ax and 100 ox then stop
 
 # credentials for connecting to clearblade platform
 credentials = {}
 credentials['platformURL'] = "http://localhost:9000"
-credentials['systemKey'] = "c4e0acb00bfaeba0d0d8ced8a6ca01"
-credentials['systemSecret'] = "C4E0ACB00BD08483CEE3A0C0E48001"
-credentials['name'] = "29986"  # device name from dev table
-credentials['active_key'] = "4Y0E0309r16Ch50aw5yAy9Qb0x" # activekey word from dev table
-credentials['username'] = ""  # from User table in CB platform
-credentials['password'] = ""        # from User table in CB platform
+credentials['systemKey'] = "88b992b30bd0c4bf83a38aede5db01"
+credentials['systemSecret'] = "88B992B30BEAC3E5F1F199B79FAC01"
+credentials['username'] = "awmathie@iu.edu"  # from User table in CB platform
+credentials['password'] = "clearblade"        # from User table in CB platform
 
 # these variables control the lights that come on when we read data from the TB
 R=0
@@ -38,26 +35,21 @@ starttime = time.time()   # for timer loop
 # this array contains the list of discovered thunderboards.  We need to keep track and
 # then have the platform/edge tell the adapter to read or stop
 thunderboards = {}
+authorized = False
 
+# class used to send and recieve MQTT messages between adapter, edge, and platform
 class MQTT:
     def __init__(self, credentials):
         self.systemKey = credentials['systemKey']
         self.systemSecret = credentials['systemSecret']
-        self.username = credentials['username']
-        self.password = credentials['password']
         self.platformURL = credentials['platformURL']
         self.gatewayAddress = self.GetMacAddress()
 
         #Connect to MQTT
         cbSystem=System(self.systemKey, self.systemSecret, self.platformURL)
 
-        # Device Auth
-        if 'active_key' in credentials:
-            self.gatewayName = credentials["name"]
-            self.active_key = credentials['active_key']
-            cbAuth=cbSystem.Device(self.gatewayName, credentials['active_key'])
-        else:
-            cbAuth=cbSystem.User(credentials['username'], credentials['password'])
+        #authenticate this adapter with the edge
+        cbAuth=cbSystem.User(credentials['username'], credentials['password'])
 
         self.gatewayName = "thunderboard"
         self.client = cbSystem.Messaging(cbAuth)
@@ -107,8 +99,8 @@ class MQTT:
 	    messageToPublish["error"] = message
 
 	    self.client.publish(topic, json.dumps(messageToPublish))
-    
-    # we ask the cloud platform for authorization, this parses the message sent back to us
+ 
+    # we ask the platform for authorization, this parses the message sent back to us
     def CommandCallback(self, client, obj, message ):
         parsedMessage = json.loads(message.payload)
         deviceAddress = parsedMessage["deviceAddress"]
@@ -120,11 +112,13 @@ class MQTT:
 
         logging.info("CommandCallback: " + message.payload + " on topic " + message.topic)
 
+	global authorized
+
         if parsedMessage['status'] == "Authorized":
-            authorized = True
+            logging.info("This should have stopped the first while loop")
+	    authorized = True
             thunderboards[deviceAddress]["status"] = "Authorized"
         else:
-            authorized = False
             thunderboards[deviceAddress]["status"] = "UnAuthorized"
 
         if authorized:
@@ -150,7 +144,8 @@ class MQTT:
         mac = get_mac()
         mac = ':'.join(("%012X" % mac)[i:i+2] for i in range(0, 12, 2))
         return mac
-                    
+
+# used for Bluetooth scanning
 class ScanDelegate(DefaultDelegate):
     def __init__(self):
         DefaultDelegate.__init__(self)
@@ -204,45 +199,40 @@ def PrintMotion (data, handle):
             ox, oy, oz = t
             MotionData['ox'] = ox
             MotionData['oy'] = oy
-            MotionData['oz'] = oz 
+            MotionData['oz'] = oz
 
-def addDeviceToPlatform(dev):
-    for (adtype, desc, value) in dev.getScanData():
-        logging.debug("addDeviceToPlatform: adtype: " + str(adtype) + " desc: " + desc + " value: " + value)
+# this section is for finding, authenticating, and retrieving data from Thunderboards
 
-        if desc == 'Complete Local Name':
-            if 'Thunder Sense #' in value and adtype==9: #only do this, ignore 255s
-                try:
-                    deviceId = str(int(value.split('#')[-1]))
-
-                    device = {}
-                    device["status"] = "New"
-                    device["command"] = "ReadEnv" # default desire by adapter
-                    device["deviceAddress"] = dev.addr
-                    device["gatewayName"] = mqtt.gatewayName
-                    device["deviceType"] = value
-                    device["deviceId"] = deviceId
-                    device["gatewayAddress"] = mqtt.gatewayAddress
-                    device["connectionType"] = "bluetooth"
-
-                    # copy structure into device list
-                    thunderboards[dev.addr] = device
-
-                    topic = mqtt.gatewayName + "/command/" + deviceId
-                    mqtt.SubscribeToTopic(topic)
-                    topic = mqtt.gatewayName + "/status/" + deviceId
-                    mqtt.PublishTopic(topic, json.dumps(device))
-
-                except Exception as e:
-                    logging.info("EXCEPTION:: %s", str(e))
-                    mqtt.PublishError("addDevicetoPlatform: exception: " + str(e))
-
-    logging.info("addDeviceToPlatform: device[" + dev.addr + "]")
-                    
-def initDeviceList(devices):
+def sendThunderboardsToPlatform(devices):
     for dev in devices:
-        if gotThunderboard(dev) == False and isThunderboard(dev):
-            addDeviceToPlatform(dev)
+        if gotThunderboard(dev) == False:
+            for (adtype, desc, value) in dev.getScanData():
+                logging.debug("sending device: adtype: " + str(adtype) + " desc: " + desc + " value: " + value)
+
+                if desc == 'Complete Local Name' and 'Thunder Sense #' in value and adtype == 9:
+                    try:
+                        device = {}
+                        device["status"] = "New"
+                        device["command"] = "ReadEnv" # default desire by adapter
+                        device["deviceAddress"] = dev.addr
+                        device["gatewayName"] = mqtt.gatewayName
+                        device["deviceType"] = value
+                        device["deviceId"] =  str(int(value.split('#')[-1]))
+                        device["gatewayAddress"] = mqtt.gatewayAddress
+                        device["connectionType"] = "bluetooth"
+
+                        thunderboards[dev.addr] = device
+                    except Exception as e:
+                        logging.info("EXCEPTION:: %s", str(e))
+                        mqtt.PublishError("sending device: exception: " + str(e))
+
+    for tb in thunderboards:
+        topic = mqtt.gatewayName + "/command/" + thunderboards[tb]["deviceId"] + "/_edge/ThunderNXP"
+        mqtt.SubscribeToTopic(topic)
+        topic = mqtt.gatewayName + "/status/" + thunderboards[tb]["deviceId"] + "/_platform"
+        mqtt.PublishTopic(topic, json.dumps(thunderboards[tb]))
+        topic = mqtt.gatewayName + "/list/_platform"
+        mqtt.PublishTopic(topic, json.dumps(thunderboards[tb]["deviceId"]))
 
 def processDeviceList(devices):
     for dev in devices:
@@ -312,7 +302,7 @@ def processMotion(dev):
 def isThunderboard(dev):
     for (adtype, desc, value) in dev.getScanData():
         if desc == 'Complete Local Name':
-            if 'Thunder Sense #' in value:
+            if 'Thunder Sense #' in value and adtype==9:
                 return True
     return False
 
@@ -321,12 +311,6 @@ def gotThunderboard(dev):
         if dev.addr == thunderboards[tb]['deviceAddress']:  
             return True
     return False
-    
-def NoThunderboards():
-    for tb in thunderboards:
-        if thunderboards[tb]['deviceAddress']: # testing existance 
-            return False
-    return True
     
 def processEnv(dev):
     if gotThunderboard(dev) or isThunderboard(dev):
@@ -419,7 +403,6 @@ def CleanUp():
     mqtt.Disconnect()
     os._exit(0)
     
-#TODO: Configure Logging to show timestamps on all messages
 def setup_custom_logger(name):
     formatter = logging.Formatter(fmt='%(asctime)s %(levelname)-8s %(message)s',datefmt='%m-%d-%Y %H:%M:%S %p')
     handler = logging.StreamHandler(stream=sys.stdout)
@@ -440,19 +423,20 @@ if __name__ == '__main__':
     mqtt.PublishGatewayStatus(True)
     start = time.time()  # start the clock for environmental polling
 
-    while not exitapp:
-        if NoThunderboards():
-            # only scan a bit but don't sleep for a long time
-            logging.info('Scan Cycle Complete: %s', datetime.datetime.now().strftime('%m-%d-%Y %H:%M:%S'))
-            logging.info("Scan Period: %s seconds", scanTimePeriod)
-            devices = scanner.scanProcess()
+    # two stages, showing devices to choose, and reading data from device
+    while True:
+        logging.info('Scan Cycle Complete: %s', datetime.datetime.now().strftime('%m-%d-%Y %H:%M:%S'))
+        logging.info("Scan Period: %s seconds", scanTimePeriod)
+        devices = scanner.scanProcess()
+        sendThunderboardsToPlatform(devices)
+	if authorized:
+	    break	    
 
-        # put this in every cycle to get the ScanData to work. It's buggy
-        initDeviceList(devices)  # this sends a message and waits to hear if it's okay to read from itprint
-        
+    logging.info("onto phase 2!");	
+
+    while not exitapp:
         try:
             processDeviceList(devices)
-        
         except KeyboardInterrupt:
             exitapp = True
             mqtt.PublishGatewayStatus(False)
@@ -462,3 +446,4 @@ if __name__ == '__main__':
         except Exception as e:
             logging.info ("EXCEPTION:: %s", str(e))
             mqtt.PublishError("main: exception: " + str(e))
+        

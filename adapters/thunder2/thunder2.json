@@ -10,5 +10,5 @@
     "status_command": "./status.sh",
     "stop_command": "./stop.sh",
     "undeploy_command": "./undeploy.sh",
-    "version": 131
+    "version": 42
 }
