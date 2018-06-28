@@ -32,12 +32,12 @@ cat >"$INITDPATH/$ADAPTERSERVICENAME" <<EOF
 # Short-Description: Start daemon at boot time
 # Description:       Enable service provided by daemon.
 ### END INIT INFO
-name="pythonScanner.py"
-dir="/home/root/adapters/thunder2/"
-cmd="/usr/bin/python ./pythonScanner.py"
+name="$PYTHONFILE"
+dir="$ADAPTERROOTFOLDER"
+cmd="$PYTHONBIN ./$name"
 user=""
 
-log="/media/userdata/scanner.log"
+log="$LOGPATH"
 
 is_running() {
     pgrep python > /dev/null 2>&1

@@ -8,11 +8,20 @@ waitTimeBetweenReads=20  # wait and then process data. Let's say 1 second delay 
 NumMotionPoints=100     # read 100 ax and 100 ox then stop
 
 # credentials for connecting to clearblade platform
+# `platformURL` - the platform where the system resides, 
+# default is communicating to the edge, keep it unchanged. 
+# 
+# !!!!!! TODO EDIT CREDENTIALS  !!!!
+# `systemKey` & `systemSecret` - The key & secret of the system, can be found by going in the 
+# about section of the system of the clearblade developer console.
+# `username` - the user which is there in the users table
+# `password` - respective password for the above username
+
 credentials = {}
 credentials['platformURL'] = "http://localhost:9000"
-credentials['systemKey'] = "88b992b30bd0c4bf83a38aede5db01"
-credentials['systemSecret'] = "88B992B30BEAC3E5F1F199B79FAC01"
-credentials['username'] = "awmathie@iu.edu"  # from User table in CB platform
+credentials['systemKey'] = "c0abdfb20bd6f3a1bfbdc1cef0d401"
+credentials['systemSecret'] = "C0ABDFB20BECBEDDF38FE1B7AA3F"
+credentials['username'] = "yaassh28@gmail.com"  # from User table in CB platform
 credentials['password'] = "clearblade"        # from User table in CB platform
 
 # these variables control the lights that come on when we read data from the TB
