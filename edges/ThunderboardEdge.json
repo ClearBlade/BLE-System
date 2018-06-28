@@ -1,0 +1,13 @@
+{
+    "description": "",
+    "last_seen_version": "4.1-rc3",
+    "location": null,
+    "mac_address": null,
+    "name": "ThunderboardEdge",
+    "policy_name": null,
+    "resolver_func": null,
+    "sync_edge_tables": null,
+    "system_key": "bee79eb30bf08dd29b8191eba16b",
+    "system_secret": "BEE79EB30B84B281EEB6F3D1FAC001",
+    "token": "wg79D02k7g88njq6ux97bA7308bX46"
+}
