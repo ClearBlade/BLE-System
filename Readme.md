@@ -22,7 +22,7 @@ This is an ipm package, which contains one or more reusable assets within the ip
 8. Congratulations, you're done! Wait for a minute or two and go to the devices tab. If your gateway found a Thunderboard it should have created a device there. You can also check the Messages tab, if you don't see any MQTT messages with thunderboard in the topic name then something went wrong. Another thing to check is the Edges tab. If ThunderNXP has a big X instead of a checkmark next to it the platform is not connected to the edge software running on your gateway.
 
 ## Usage
-To see a visualization of the data, go to the Portals tab and click on the AnomalyDetection portal. Change the topic field on the right to be thunderboard/environment/\<THUNDERBOARD\_ID\>/_platform (you can check for the id in the Messages tab), and change the Sensor Key field to one of sound, co2, temperature, voc, battery, light, uv, humidity, pressure.
+To see a visualization of the data, go to the Portals tab and click on the AnomalyDetection portal. Change the topic field on the right to be thunderboard/environment/\<THUNDERBOARD\_ID\>/_platform (the ID will be a 5 digit number in pretty much every MQQT topic in the Messages tab), and change the Sensor Key field to one of sound, co2, temperature, voc, battery, light, uv, humidity, pressure.
 
 # Assets	
 
