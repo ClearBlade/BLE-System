@@ -1,8 +1,8 @@
 {
     "auto_restart": false,
     "concurrency": 0,
-    "current_version": 83,
-    "dependencies": "log,clearblade",
+    "current_version": 6,
+    "dependencies": "log,clearblade,Constants",
     "execution_timeout": 0,
     "logging_enabled": "true",
     "name": "AddThunderboardDevice",

@@ -45,7 +45,7 @@ function AddThunderboardDevice(req, resp){
 
             if (data[device].deviceid == body.deviceId) {
                 log("Device Found. Sending Authorized message back.");
-                var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/ThunderNXP";
+                var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/" + edgeName;   //edgeName is in Constants library
                 var payload = {"command": "ReadEnv", "status": "Authorized", "gatewayName": body.gatewayName, "deviceId": body.deviceId, "deviceAddress": body.deviceAddress, "deviceType": body.deviceType, "deviceAddrType": body.deviceAddrType};
                 log("Publishing topic: " + topic + " with payload " + JSON.stringify(payload));
                 var msg = ClearBlade.Messaging();
@@ -59,40 +59,6 @@ function AddThunderboardDevice(req, resp){
     log("either there are no devices or we didn't find any with the right id");
     var generatedName = "thunderboard" + numberOfDevices;
     log("trying to name device: " + generatedName);
-
-/*
-    var device = {
-        name: generatedName,
-        active_key: "clearblade",
-        address: "",
-        allow_certificate_auth: true,
-        allow_key_auth: true,
-        ambientlight: 0,
-        battery: "",
-        causetrigger: "",
-        certificate: "",
-        co2: 0,
-        description: "",
-        deviceid: body.deviceId,
-        device_label: "",
-        device_key: "",
-        enabled: true,
-        gps_coordinates: "",
-        has_keys: false,
-        keys: "",
-        humidity: 0,
-        location: "",
-        map_url: "",
-        pressure: 0,
-        sound: 0,
-        salt: "",
-        state: "",
-        system_key: req.system_key,
-        temperature: 0,
-        uvindex: 0,
-        voc: 0
-    };
-    */
 
     var device = {
 		name: generatedName,
@@ -112,7 +78,7 @@ function AddThunderboardDevice(req, resp){
 
         log("Made new device. Sending Authorized message back.");
         
-        var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/ThunderNXP";
+        var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/" + edgeName;
         var payload = {"command": "ReadEnv", "status": "Authorized", "gatewayName": body.gatewayName, "deviceId": body.deviceId, "deviceAddress": body.deviceAddress, "deviceType": body.deviceType, "deviceAddrType": body.deviceAddrType};
         log("Publishing topic: " + topic + " with payload " + JSON.stringify(payload));
         
