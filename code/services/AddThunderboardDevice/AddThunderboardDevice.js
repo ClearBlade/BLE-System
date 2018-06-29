@@ -13,6 +13,7 @@
  */
 
 function AddThunderboardDevice(req, resp){
+    const EDGE_NAME = "ThunderboardOnPi";
     ClearBlade.init({request: req});
     
     log(JSON.stringify(req));
@@ -45,7 +46,7 @@ function AddThunderboardDevice(req, resp){
 
             if (data[device].deviceid == body.deviceId) {
                 log("Device Found. Sending Authorized message back.");
-                var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/ThunderNXP";
+                var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/"+ EDGE_NAME;
                 var payload = {"command": "ReadEnv", "status": "Authorized", "gatewayName": body.gatewayName, "deviceId": body.deviceId, "deviceAddress": body.deviceAddress, "deviceType": body.deviceType, "deviceAddrType": body.deviceAddrType};
                 log("Publishing topic: " + topic + " with payload " + JSON.stringify(payload));
                 var msg = ClearBlade.Messaging();
@@ -112,7 +113,7 @@ function AddThunderboardDevice(req, resp){
 
         log("Made new device. Sending Authorized message back.");
         
-        var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/ThunderNXP";
+        var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/"+ EDGE_NAME;
         var payload = {"command": "ReadEnv", "status": "Authorized", "gatewayName": body.gatewayName, "deviceId": body.deviceId, "deviceAddress": body.deviceAddress, "deviceType": body.deviceType, "deviceAddrType": body.deviceAddrType};
         log("Publishing topic: " + topic + " with payload " + JSON.stringify(payload));
         

@@ -80,7 +80,7 @@
     ],
     "description": "Deployment created by the database migration process. It reflects the old semantics for ClearBlade systems",
     "edges": [
-        "ThunderNXP"
+        "ThunderboardOnPi"
     ],
     "name": "Default Deployment"
 }

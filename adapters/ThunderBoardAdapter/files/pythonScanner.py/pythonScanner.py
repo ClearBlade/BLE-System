@@ -16,13 +16,16 @@ NumMotionPoints=100     # read 100 ax and 100 ox then stop
 # about section of the system of the clearblade developer console.
 # `username` - the user which is there in the users table
 # `password` - respective password for the above username
-
+# 
 credentials = {}
 credentials['platformURL'] = "http://localhost:9000"
 credentials['systemKey'] = "c0abdfb20bd6f3a1bfbdc1cef0d401"
 credentials['systemSecret'] = "C0ABDFB20BECBEDDF38FE1B7AA3F"
 credentials['username'] = "yaassh28@gmail.com"  # from User table in CB platform
 credentials['password'] = "clearblade"        # from User table in CB platform
+
+# Name of the edge
+edge_name = "ThunderboardOnPi"
 
 # these variables control the lights that come on when we read data from the TB
 R=0
@@ -236,7 +239,7 @@ def sendThunderboardsToPlatform(devices):
                         mqtt.PublishError("sending device: exception: " + str(e))
 
     for tb in thunderboards:
-        topic = mqtt.gatewayName + "/command/" + thunderboards[tb]["deviceId"] + "/_edge/ThunderNXP"
+        topic = mqtt.gatewayName + "/command/" + thunderboards[tb]["deviceId"] + "/_edge/"+ edge_name
         mqtt.SubscribeToTopic(topic)
         topic = mqtt.gatewayName + "/status/" + thunderboards[tb]["deviceId"] + "/_platform"
         mqtt.PublishTopic(topic, json.dumps(thunderboards[tb]))
