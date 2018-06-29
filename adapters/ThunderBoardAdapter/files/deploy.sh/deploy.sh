@@ -17,6 +17,7 @@ echo "Python Bin: $PYTHONBIN"
 
 echo "------Installing Prerequisites"
 
+sudo apt-get install libglib2.0-dev
 #pip install --upgrade pip
 pip install bluepy
 pip install clearblade

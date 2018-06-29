@@ -61,40 +61,6 @@ function AddThunderboardDevice(req, resp){
     var generatedName = "thunderboard" + numberOfDevices;
     log("trying to name device: " + generatedName);
 
-/*
-    var device = {
-        name: generatedName,
-        active_key: "clearblade",
-        address: "",
-        allow_certificate_auth: true,
-        allow_key_auth: true,
-        ambientlight: 0,
-        battery: "",
-        causetrigger: "",
-        certificate: "",
-        co2: 0,
-        description: "",
-        deviceid: body.deviceId,
-        device_label: "",
-        device_key: "",
-        enabled: true,
-        gps_coordinates: "",
-        has_keys: false,
-        keys: "",
-        humidity: 0,
-        location: "",
-        map_url: "",
-        pressure: 0,
-        sound: 0,
-        salt: "",
-        state: "",
-        system_key: req.system_key,
-        temperature: 0,
-        uvindex: 0,
-        voc: 0
-    };
-    */
-
     var device = {
 		name: generatedName,
 		active_key: "clearblade",
@@ -113,7 +79,11 @@ function AddThunderboardDevice(req, resp){
 
         log("Made new device. Sending Authorized message back.");
         
+<<<<<<< HEAD
         var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/"+ EDGE_NAME;
+=======
+        var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/" + edgeName;
+>>>>>>> develop
         var payload = {"command": "ReadEnv", "status": "Authorized", "gatewayName": body.gatewayName, "deviceId": body.deviceId, "deviceAddress": body.deviceAddress, "deviceType": body.deviceType, "deviceAddrType": body.deviceAddrType};
         log("Publishing topic: " + topic + " with payload " + JSON.stringify(payload));
         

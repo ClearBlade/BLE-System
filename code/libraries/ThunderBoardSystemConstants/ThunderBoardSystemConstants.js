@@ -1,0 +1,1 @@
+const EDGE_NAME = "ThunderboardOnPi";
