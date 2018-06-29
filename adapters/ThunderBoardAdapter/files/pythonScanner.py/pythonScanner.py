@@ -62,7 +62,7 @@ class MQTT:
 
         self.gatewayName = "thunderboard"
         self.client = cbSystem.Messaging(cbAuth)
-        self.client.connect();  # the on_connect is not working
+        self.client.connect()  # the on_connect is not working
         self.client.on_message = self.CommandCallback
         
     def Disconnect(self):
@@ -389,7 +389,7 @@ def processEnv(dev):
                     k.write(s, True)
 
             topic = thunderboards[dev.addr]['gatewayName'] + "/environment/" \
-                + thunderboards[dev.addr]['deviceId'] + "/_platform";
+                + thunderboards[dev.addr]['deviceId'] + "/_platform"
             logging.debug("publishing environment data")
             logging.debug(json.dumps(tbdata))
             mqtt.PublishTopic(topic, json.dumps(tbdata))
@@ -425,7 +425,7 @@ def setup_custom_logger(name):
 if __name__ == '__main__':
     logger = setup_custom_logger('scanner adapter')
 
-    scanner = ScanDelegate();
+    scanner = ScanDelegate()
     exitapp = False
     mqtt = MQTT(credentials)
     time.sleep(5)   # to make sure we connect okay
@@ -441,7 +441,7 @@ if __name__ == '__main__':
 	if authorized:
 	    break	    
 
-    logging.info("onto phase 2!");	
+    logging.info("onto phase 2!")	
 
     while not exitapp:
         try:
