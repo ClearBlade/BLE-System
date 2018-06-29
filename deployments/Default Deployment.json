@@ -58,7 +58,7 @@
         },
         {
             "asset_class": "adaptors",
-            "asset_id": "thunder2",
+            "asset_id": "ThunderBoardAdapter",
             "deployment": "Default Deployment",
             "member": "Default Deployment_deployment_edge_group",
             "sync": true

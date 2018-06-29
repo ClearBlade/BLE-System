@@ -3,7 +3,7 @@
     "deploy_command": "./deploy.sh",
     "description": "",
     "logs_command": "tail -f 100 /media/userdata/scanner.log",
-    "name": "thunder2",
+    "name": "ThunderBoardAdapter",
     "os": "",
     "protocol": "",
     "start_command": "./start.sh",
