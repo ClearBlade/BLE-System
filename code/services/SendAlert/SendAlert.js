@@ -15,7 +15,7 @@ function SendAlert(req, resp){
     var config = {}
     var anomaly;
     ClearBlade.init({request:req})
-    var collectionName = "AnomalyConfiguration"
+    var collectionName = "anomaly_configuration"
     ClearBlade.Collection({collectionName}).fetch(configure)
     
     function configure(err, data){
@@ -38,7 +38,7 @@ function SendAlert(req, resp){
     
     function getNewRow(){
         var item_id = req.params.items[0].item_id
-        ClearBlade.Query({collectionName:"Anomalies"}).equalTo("item_id",item_id).fetch(function(err, data){
+        ClearBlade.Query({collectionName:"anomalies"}).equalTo("item_id",item_id).fetch(function(err, data){
             if(err){
                 var msg = "Failed to fetch from Anomalies: "+JSON.stringify(data)
                 log(msg); resp.error(msg)

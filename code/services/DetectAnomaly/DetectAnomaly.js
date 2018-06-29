@@ -31,7 +31,7 @@ function DetectAnomaly(req, resp){
     }
 
     ClearBlade.init({request:req})
-    var collectionName = "AnomalyConfiguration"
+    var collectionName = "anomaly_configuration"
     ClearBlade.Collection({collectionName}).fetch(configure)
     
     function configure(err, data){
@@ -108,7 +108,7 @@ function DetectAnomaly(req, resp){
                 above_threshold: (anomaly.value > max)
             }
             log({entry})
-            ClearBlade.Collection({collectionName:"Anomalies"}).create(entry,function(err, data){log(data)}) // todo callbacks....
+            ClearBlade.Collection({collectionName:"anomalies"}).create(entry,function(err, data){log(data)}) // todo callbacks....
         }
     }
     

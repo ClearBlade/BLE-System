@@ -10,7 +10,7 @@
     },
     "key_value_pairs": {
         "collectionId": "debeeeb00ba8bce5fcf7a7a6f0c301",
-        "collectionName": "Anomalies"
+        "collectionName": "anomalies"
     },
     "name": "SendAlertsTrigger",
     "service_name": "SendAlert"
