@@ -17,7 +17,10 @@ echo "Python Bin: $PYTHONBIN"
 
 echo "------Installing Prerequisites"
 
-sudo apt-get install libglib2.0-dev
+sudo apt-get -y update
+sudo apt-get -y install libglib2.0-dev
+sudo apt-get -y install python-pip
+[ -d $LOGDIR ] || mkdir -p $LOGDIR
 #pip install --upgrade pip
 pip install bluepy
 pip install clearblade
@@ -35,7 +38,7 @@ cat >"$INITDPATH/$ADAPTERSERVICENAME" <<EOF
 ### END INIT INFO
 name="$PYTHONFILE"
 dir="$ADAPTERROOTFOLDER"
-cmd="$PYTHONBIN ./$name"
+cmd="$PYTHONBIN ./pythonScanner.py"
 user=""
 
 log="$LOGPATH"
@@ -112,6 +115,11 @@ esac
 
 exit 0
 EOF
+
+if [ "$?" -ne 0 ]; then
+echo "cat into service name failed with code: $?"
+exit 1
+fi
 
 chmod +x "$INITDPATH/$ADAPTERSERVICENAME"
 
