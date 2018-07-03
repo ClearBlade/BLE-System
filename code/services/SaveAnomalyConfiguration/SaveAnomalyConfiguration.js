@@ -4,7 +4,7 @@
  * @param {AnomalyConfiguration} anomalyConfiguration - map of settings to update
  */
 function SaveAnomalyConfiguration(req, resp){
-    const collectionName = "AnomalyConfiguration"
+    const collectionName = "anomaly_configuration"
     var count = 0;
     log(req)
     ClearBlade.init({request:req})

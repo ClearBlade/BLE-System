@@ -157,28 +157,28 @@
                 "ID": "debeeeb00ba8bce5fcf7a7a6f0c301",
                 "Items": [],
                 "Level": 15,
-                "Name": "Anomalies"
+                "Name": "anomalies"
             },
             {
                 "Columns": [],
                 "ID": "90c19bae0b9ebdfdb6f8ab8efa36",
                 "Items": [],
                 "Level": 15,
-                "Name": "Anomalies"
+                "Name": "anomalies"
             },
             {
                 "Columns": [],
                 "ID": "8ec29bae0beeb4efe2b9cad1a619",
                 "Items": [],
                 "Level": 5,
-                "Name": "AnomalyConfiguration"
+                "Name": "anomaly_configuration"
             },
             {
                 "Columns": [],
                 "ID": "e4beeeb00bbc8c8de8d6f4e0ffee01",
                 "Items": [],
                 "Level": 5,
-                "Name": "AnomalyConfiguration"
+                "Name": "anomaly_configuration"
             },
             {
                 "Columns": [],

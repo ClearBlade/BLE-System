@@ -1,9 +1,9 @@
 {
-    "adaptor_name": "thunder2",
+    "adaptor_name": "ThunderBoardAdapter",
     "group": "",
     "name": "start.sh",
     "owner": "",
     "path_name": "start.sh",
     "permissions": "",
-    "version": 13
+    "version": 3
 }

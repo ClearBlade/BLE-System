@@ -1,9 +1,9 @@
 {
-    "adaptor_name": "thunder2",
+    "adaptor_name": "ThunderBoardAdapter",
     "group": "",
     "name": "undeploy.sh",
     "owner": "",
     "path_name": "undeploy.sh",
     "permissions": "",
-    "version": 12
+    "version": 1
 }

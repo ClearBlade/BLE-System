@@ -1,0 +1,14 @@
+{
+    "architecture": "linux32arm",
+    "deploy_command": "sudo ./deploy.sh",
+    "description": "",
+    "logs_command": "sudo tail -f 100 /media/userdata/scanner.log",
+    "name": "ThunderBoardAdapter",
+    "os": "",
+    "protocol": "",
+    "start_command": "sudo ./start.sh",
+    "status_command": "sudo ./status.sh",
+    "stop_command": "sudo ./stop.sh",
+    "undeploy_command": "sudo ./undeploy.sh",
+    "version": 42
+}

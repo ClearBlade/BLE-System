@@ -43,11 +43,11 @@
             },
             "b292f6f0-1000-4dba-bfd8-14c5c3eea8bc": {
                 "id": "b292f6f0-1000-4dba-bfd8-14c5c3eea8bc",
-                "name": "Anomalies",
+                "name": "anomalies",
                 "settings": {
                     "CALL_ON_LOAD": true,
                     "SUPPRESS_DATASOURCE_ERRORS": false,
-                    "collection_name": "Anomalies",
+                    "collection_name": "anomalies",
                     "refresh_interval": "100"
                 },
                 "type": "CB_COLLECTION"

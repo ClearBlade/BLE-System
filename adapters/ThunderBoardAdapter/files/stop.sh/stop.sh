@@ -9,4 +9,4 @@ fi
 
 source "./adapterconfig.txt"
 
-/etc/init.d/$ADAPTERSERVICENAME stop
+$INITDPATH/$ADAPTERSERVICENAME stop

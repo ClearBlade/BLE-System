@@ -4,27 +4,26 @@
 
 ## Overview
 
-This package deploys to an NXP imx6 gateway, which tries to connect to any nearby Thunderboards via BLE. The Thunderboard sends any data it gathers to the gateway, which then forwards it to the platform. The platform then displays the data in a graph in the AnomalyDetection portal.
+This package has been successfully deployed to both a Raspberry Pi and an NXP imx6 modular gateway. Whichever edge you use searches for and connects to any nearby Thunderboards via BLE. The gateway gathers data from the Thunderboards, and then forwards it to the platform. The platform then displays the data in a graph in the AnomalyDetection portal.
 
 This is an ipm package, which contains one or more reusable assets within the ipm Community. The 'package.json' in this repo is a ipm spec's package.json, [here](https://docs.clearblade.com/v/3/6-ipm/spec), which is a superset of npm's package.json spec, [here](https://docs.npmjs.com/files/package.json).
 
 [Browse ipm Packages](https://ipm.clearblade.com)
 
 ## Setup
-1. Flash the firmware of your Thunderboard so the advertisement period for connecting via BLE lasts indefinitely. See https://drive.google.com/file/d/1IKI7dMM06SRRPKHS4E41vE-PMXk9SQw1/view?usp=sharing for reference.
+1. Flash the firmware of your Thunderboard so the advertisement period for connecting via BLE lasts indefinitely. See the ClearBlade Adapters ThunderBoard Sense Firmware Config pdf for reference.
 2. Create a system on the ClearBlade platform and install this IPM.
-3. Go to the Users tab and create a user. Make sure the user has the Authenticated role.
-4. Go to the Devices tab and create a device. MAKE SURE you copy the Active key and save it somewhere before you finish making the device. 
-5. Go to the Edges tab and add an edge. Click on Setup instructions and set the architecture of your gateway. (If you are using the NXP imx6 it will be Linux 32 bit - ARM)
-6. SSH into your gateway and follow the instructions. You need to copy the Download, Unzip, Install, Permission, and very bottom commands and run them on your gateway in the directory you want your Edge to be in. Make sure to put nohup in front of the very last command, you will need to exit this shell session and SSH back into the gateway. Run top and verify the edge is running by looking for the word edge in the COMMAND column on the far right.
-7. Change the directory to adapters/thunder2 and open the pythonScanner.py file. Update the credentials at the beginning to match your own. Save and exit the file.
-8. Go back to your ClearBlade system, and go to the Adapters tab. Select the thunder2 adapter, select your edge, and press the play button.
-9. Congratualtions, your IoT system should now be working!
+3. Go to the Users tab and create a User. Make sure you can remember your password.
+4. Go to the Adapters tab, select the ThunderBoardAdapter adapter, click the pencil edit icon next to Configuration, and download the pythonScanner.py file. Open it up and change the credentials at the start of the file. Leave the platformURL alone, you can find the System Key and System Secret on the platform if you select the info tab, and then the System Settings subtab. The username and password will be the same as the User you just created. After you've changed the credentials, save the file, go back to the edit configuration modal in the Adapters tab, and replace the python scanner file.
+5. Go to the Edges tab, click on the gear icon next to the already created edge named ThunderboardOnPi. Select Setup Instructions, and change the target dropdown to Linux 32bit-ARM. Don't close this.
+6. SSH into your gateway and navigate to the directory you want the edge and adapter software to be in. Go back to your browser, and in the modal you didn't close from the last instrcution, press the copy button next to the Download textbox. Go back to your terminal, paste the instruction, and run it. Do this for Download, Unzip, Install, Permission. You will also need to do this for the command at the very bottom (starts with edge, should have a copy button), BUT you need to put nohup in front of that command so it will log all of it's output in a nohup.out file instead of your terminal.
+7. Go back to your ClearBlade system, and go to the Adapters tab. Select the ThunderBoardAdapter adapter, select the ThunderboardOnPi edge, and press the play button.
+8. Congratualtions, you're done! Wait for a minute or two and go to the devices tab. If your gateway found a Thunderboard it should have created a device there. You can also check the Messages tab, if you don't see any MQTT messages with thunderboard in the topic name then something went wrong.
 
 ## Usage
-To see a visualization of the data, go to the Portals tab and click on the AnomalyDetection portal. Change the topic field on the right to be thunderboard/environment/YOURDEVICENAME/_platform, and change the Sensor Key field to one of sound, co2, temperature, voc, battery, light, uv, humidity, pressure.
+To see a visualization of the data, go to the Portals tab and click on the AnomalyDetection portal. Change the topic field on the right to be thunderboard/environment/\<THUNDERBOARD\_ID\>/_platform (the ID will be a 5 digit number in pretty much every MQQT topic in the Messages tab), and change the Sensor Key field to one of sound, co2, temperature, voc, battery, light, uv, humidity, pressure.
 
-#Assets	
+# Assets	
 
 ## Code Services
 <span style="color:red">  AddThunderboardDevice</span> - Checks if a thunderboard device exists in the device table, if yes then sends authentication message back to gateway.  
@@ -86,7 +85,7 @@ See attached whitepaper for Anomaly Detection for Predictive Maintenance
 </dd>
 <dt><a href="#AddThunderboardDevice">AddThunderboardDevice(body)</a></dt>
 <dd><p>When the gateway detects a thunderboard via BLE, it checks to see if it 
-has configuration values that match a device in the device table. This code
+has configuration values that match a device in the device table. If not it creates a device. This code
 service triggers when a MQQT message is sent for the above reason, and if 
 there does exist a matching device then it sends a message back to the 
 gateway authenticating the device so it can start gathering data.</p>

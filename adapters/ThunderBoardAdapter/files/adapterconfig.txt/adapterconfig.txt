@@ -1,0 +1,12 @@
+#Variables for Init.d Deployments
+# Edge binary folder should have the clearblade edge binary.
+EDGEBINARYFOLDER=/home/pi/cbedge
+# Once deployed, the adapter code & scripts will be in the adapters/ThunderBoardAdapter folder
+ADAPTERROOTFOLDER=$EDGEBINARYFOLDER/adapters/ThunderBoardAdapter
+ADAPTERFULLPATH=$ADAPTERROOTFOLDER
+ADAPTERSERVICENAME=ThunderBoardAdapter
+INITDPATH=/etc/init.d
+PYTHONFILE=pythonScanner.py
+PYTHONBIN=/usr/bin/python
+LOGDIR=/media/userdata
+LOGPATH=$LOGDIR/scanner.log

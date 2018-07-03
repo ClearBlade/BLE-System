@@ -16,4 +16,4 @@ hciconfig hci0 up
 
 echo "------Starting pythonScanner"
 
-/etc/init.d/$ADAPTERSERVICENAME start
+$INITDPATH/$ADAPTERSERVICENAME start

@@ -1,9 +1,9 @@
 {
-    "adaptor_name": "thunder2",
+    "adaptor_name": "ThunderBoardAdapter",
     "group": "",
     "name": "pythonScanner.py",
     "owner": "",
     "path_name": "pythonScanner.py",
     "permissions": "",
-    "version": 9
+    "version": 16
 }

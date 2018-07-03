@@ -17,6 +17,10 @@ echo "Python Bin: $PYTHONBIN"
 
 echo "------Installing Prerequisites"
 
+sudo apt-get -y update
+sudo apt-get -y install libglib2.0-dev
+sudo apt-get -y install python-pip
+[ -d $LOGDIR ] || mkdir -p $LOGDIR
 #pip install --upgrade pip
 pip install bluepy
 pip install clearblade
@@ -32,12 +36,12 @@ cat >"$INITDPATH/$ADAPTERSERVICENAME" <<EOF
 # Short-Description: Start daemon at boot time
 # Description:       Enable service provided by daemon.
 ### END INIT INFO
-name="pythonScanner.py"
-dir="/home/root/adapters/thunder2/"
-cmd="/usr/bin/python ./pythonScanner.py"
+name="$PYTHONFILE"
+dir="$ADAPTERROOTFOLDER"
+cmd="$PYTHONBIN ./pythonScanner.py"
 user=""
 
-log="/media/userdata/scanner.log"
+log="$LOGPATH"
 
 is_running() {
     pgrep python > /dev/null 2>&1
@@ -111,6 +115,11 @@ esac
 
 exit 0
 EOF
+
+if [ "$?" -ne 0 ]; then
+echo "cat into service name failed with code: $?"
+exit 1
+fi
 
 chmod +x "$INITDPATH/$ADAPTERSERVICENAME"
 

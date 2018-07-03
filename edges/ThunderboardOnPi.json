@@ -1,9 +1,9 @@
 {
-    "description": "Thunderboard on the NXP",
+    "description": "Thunderboard on the Pi",
     "last_seen_version": "4.1-rc3",
     "location": null,
     "mac_address": null,
-    "name": "ThunderNXP",
+    "name": "ThunderboardOnPi",
     "policy_name": null,
     "resolver_func": null,
     "sync_edge_tables": null,
