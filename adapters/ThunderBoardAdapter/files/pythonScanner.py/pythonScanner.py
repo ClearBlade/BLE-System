@@ -61,13 +61,26 @@ class MQTT:
         cbSystem=System(self.systemKey, self.systemSecret, self.platformURL)
 
         #authenticate this adapter with the edge
+        sleep_time = 1
         cbAuth=cbSystem.User(credentials['username'], credentials['password'])
-
+        
+        while not cbAuth.checkAuth():
+            print("trying to authenticate again by sleeping for %d", sleep_time)
+            time.sleep(sleep_time)
+            sleep_time = sleep_time << 1
+            cbAuth = cbSystem.User(credentials['username'], credentials['password'])    
+            if sleep_time > 60:
+                break
+        
         self.gatewayName = "thunderboard"
         self.client = cbSystem.Messaging(cbAuth)
         self.client.connect()  # the on_connect is not working
         self.client.on_message = self.CommandCallback
-        
+
+    def dump(self, obj):
+        for attr in dir(obj):
+            print("obj.%s = %r" % (attr, getattr(obj, attr)))    
+
     def Disconnect(self):
         self.client.disconnect()
         

@@ -41,8 +41,8 @@ dir="$ADAPTERROOTFOLDER"
 cmd="$PYTHONBIN ./pythonScanner.py"
 user=""
 
-log="$LOGPATH"
-
+log="/media/userdata/scanner.log"
+echo "hey running init.d/ThunderboardService \$1" >> "\$log" 
 is_running() {
     pgrep python > /dev/null 2>&1
 }
@@ -55,9 +55,9 @@ case "\$1" in
         echo "Starting \$name"
         cd "\$dir"
         if [ -z "\$user" ]; then
-            \$cmd &> "\$log"  &
+            \$cmd >> "\$log"  &
         else
-            \$cmd &> "\$log"  &
+            \$cmd >> "\$log"  &
         fi
         if ! is_running; then
             echo "Unable to start, see \$log"
@@ -79,7 +79,6 @@ case "\$1" in
             echo -n "."
             sleep 1
         done
-        echo
 
         if is_running; then
             echo "Not stopped; may still be shutting down or shutdown may have failed"
