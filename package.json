@@ -5,7 +5,7 @@
     "domains": [],
     "gateways": ["imx6"],
     "image_url": "https://i.imgur.com/dmtaj3d.jpg",
-    "asset_types":["Code Services", "Code Libraries", "Triggers", "Portals"],
+    "asset_types":["System", "Code Services", "Code Libraries", "Triggers", "Portals"],
     "keywords": [
         "clearblade",
         "iot",

@@ -141,7 +141,7 @@ class MQTT:
 
         if parsedMessage['status'] == "Authorized":
             logging.info("This should have stopped the first while loop")
-	    authorized = True
+	        authorized = True
             thunderboards[deviceAddress]["status"] = "Authorized"
         else:
             thunderboards[deviceAddress]["status"] = "UnAuthorized"
