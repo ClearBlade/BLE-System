@@ -79,11 +79,7 @@ function AddThunderboardDevice(req, resp){
 
         log("Made new device. Sending Authorized message back.");
         
-<<<<<<< HEAD
         var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/"+ EDGE_NAME;
-=======
-        var topic = body.gatewayName +"/command/" + body.deviceId + "/_edge/" + edgeName;
->>>>>>> develop
         var payload = {"command": "ReadEnv", "status": "Authorized", "gatewayName": body.gatewayName, "deviceId": body.deviceId, "deviceAddress": body.deviceAddress, "deviceType": body.deviceType, "deviceAddrType": body.deviceAddrType};
         log("Publishing topic: " + topic + " with payload " + JSON.stringify(payload));
         

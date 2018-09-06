@@ -19,10 +19,10 @@ NumMotionPoints=100     # read 100 ax and 100 ox then stop
 # 
 credentials = {}
 credentials['platformURL'] = "http://localhost:9000"
-credentials['systemKey'] = "d0d4d2b30be6aaabd1a8a1c2adbb01"
-credentials['systemSecret'] = "D0D4D2B30BC0A8F59CCB82C8BE24"
-credentials['username'] = "yjain@clearblade.com"  # from User table in CB platform
-credentials['password'] = "clearblade"        # from User table in CB platform
+credentials['systemKey'] = ""
+credentials['systemSecret'] = ""
+credentials['username'] = ""  # from User table in CB platform
+credentials['password'] = ""        # from User table in CB platform
 
 # Name of the edge
 edge_name = "ThunderboardOnPi"
