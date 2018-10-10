@@ -1,7 +1,50 @@
 {
     "app_id": "c4e0acb00bfaeba0d0d8ced8a6ca01",
     "collection_id": "e4beeeb00bbc8c8de8d6f4e0ffee01",
-    "items": [],
+    "items": [
+        {
+            "default_val": "temperature",
+            "key": "sensor_key",
+            "val": "co2",
+            "val_enum_options": "*"
+        },
+        {
+            "default_val": null,
+            "key": "email_alerts_recipients",
+            "val": "[\"a@a.com\",\"b@b.com\"]",
+            "val_enum_options": "[\"a@a.com\",\"b@b.com\"]"
+        },
+        {
+            "default_val": "5555555555",
+            "key": "sms_alerts_recipient",
+            "val": "",
+            "val_enum_options": "5555555555"
+        },
+        {
+            "default_val": "false",
+            "key": "sms_alerts_enabled",
+            "val": "false",
+            "val_enum_options": "[\"true\",\"false\"]"
+        },
+        {
+            "default_val": "sensor",
+            "key": "topic",
+            "val": "thunderboard/environment/31325/_platform",
+            "val_enum_options": "*"
+        },
+        {
+            "default_val": "MODERATE",
+            "key": "strictness",
+            "val": "HIGH",
+            "val_enum_options": "[\"OFF\",\"LOW\",\"MODERATE\",\"HIGH\"]"
+        },
+        {
+            "default_val": "false",
+            "key": "email_alerts_enabled",
+            "val": "false",
+            "val_enum_options": "[\"true\",\"false\"]"
+        }
+    ],
     "name": "anomaly_configuration",
     "permissions": {
         "Administrator": 15,
